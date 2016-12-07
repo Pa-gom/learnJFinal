@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+  <session-factory>
+    <property name="connection.url">jdbc:mysql://localhost:3306/fzujob</property>
+    <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+      <mapping class="net.evecom.college.framework.model.EmpCollegeIndex"/>
+      <mapping class="net.evecom.college.framework.model.EmpCollegeProfessionIndex"/>
+      <mapping class="net.evecom.college.framework.model.EmpCompanyCreditIndex"/>
+      <mapping class="net.evecom.college.framework.model.EmpCompanyInfo"/>
+      <mapping class="net.evecom.college.framework.model.EmpCompanyStateIndex"/>
+      <mapping class="net.evecom.college.framework.model.EmpCompanyTypeIndex"/>
+      <mapping class="net.evecom.college.framework.model.EmpComputerLevelIndex"/>
+      <mapping class="net.evecom.college.framework.model.EmpContracInfo"/>
+      <mapping class="net.evecom.college.framework.model.EmpContractStateIndex"/>
+      <mapping class="net.evecom.college.framework.model.EmpEnglishLevelIndex"/>
+      <mapping class="net.evecom.college.framework.model.EmpEntryTypeIndex"/>
+      <mapping class="net.evecom.college.framework.model.EmpExamTypeIndex"/>
+      <mapping class="net.evecom.college.framework.model.EmpGraduateInfo"/>
+      <mapping class="net.evecom.college.framework.model.EmpIndustryIndex"/>
+      <mapping class="net.evecom.college.framework.model.EmpJobfairInfo"/>
+      <mapping class="net.evecom.college.framework.model.EmpJobfairStateIndex"/>
+      <mapping class="net.evecom.college.framework.model.EmpJobfairTypeIndex"/>
+      <mapping class="net.evecom.college.framework.model.EmpMinorityIndex"/>
+      <mapping class="net.evecom.college.framework.model.EmpPlaceApplyInfo"/>
+      <mapping class="net.evecom.college.framework.model.EmpPlaceApplyStateIndex"/>
+      <mapping class="net.evecom.college.framework.model.EmpPlaceInfo"/>
+      <mapping class="net.evecom.college.framework.model.EmpPlaceStateIndex"/>
+      <mapping class="net.evecom.college.framework.model.EmpPoliticalStatusIndex"/>
+      <mapping class="net.evecom.college.framework.model.EmpProfessionIndex"/>
+      <mapping class="net.evecom.college.framework.model.EmpProvinceIndex"/>
+      <mapping class="net.evecom.college.framework.model.EmpRecruitInfo"/>
+      <mapping class="net.evecom.college.framework.model.EmpRecruitStateIndex"/>
+      <mapping class="net.evecom.college.framework.model.EmpRecruitTypeIndex"/>
+      <mapping class="net.evecom.college.framework.model.EmpSexIndex"/>
+      <mapping class="net.evecom.college.framework.model.EmpStudentBaseInfo"/>
+      <mapping class="net.evecom.college.framework.model.EmpStudentMarryIndex"/>
+      <mapping class="net.evecom.college.framework.model.EmpStuffInfo"/>
+      <mapping class="net.evecom.college.framework.model.EmpSysInfo"/>
+      <!-- DB schema will be updated if needed -->
+    <!-- <property name="hbm2ddl.auto">update</property> -->
+  </session-factory>
+</hibernate-configuration>

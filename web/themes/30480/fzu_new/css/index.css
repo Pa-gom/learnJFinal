@@ -1,6 +1,6 @@
 @charset "utf-8";
-/*Ê×Ò³*/
-/*ºá·ù*/
+/*ï¿½ï¿½Ò³*/
+/*ï¿½ï¿½ï¿½*/
 #banner{ text-align:center; position:relative; max-width:1200px; margin-left:auto; margin-right:auto; height:auto;background:url(../images/loading.gif) center no-repeat;}
 #banner img{ width:100%; max-width:1200px;}
 #banner  .caption{ width:862px; height:55px; line-height:55px; padding-top:5px; background:rgba(0,0,0,0.5); position:absolute; bottom:0; left:50%; margin-left:-501px; text-align:left; font-size:20px; color:#fff; font-family:Microsoft YaHei; padding-left:140px}
@@ -19,7 +19,7 @@
 #banner .next{ right:5px;}#banner .prev{ left:5px;}
 
 
-/*ÖØ´ó½ÚÈÕ*/
+/*ï¿½Ø´ï¿½ï¿½ï¿½ï¿½*/
 /*
 #headline{ padding:35px; line-height:30px; background:url(../images/headline.png) center bottom no-repeat;}
 #headline h1{ text-align:center; font-size:22px;}
@@ -27,16 +27,16 @@
 */
 
 #main{ padding:5px 0px 20px 0px;}
-/*Í·ÈýÌõ*/
+/*Í·ï¿½ï¿½ï¿½ï¿½*/
 .hotNews,.newslist{ display:inline-block; *zoom:1;*display:inline; width:32.9%; vertical-align:top;}
 .hotNews h3{ margin:0 10px 5px; font-size:16px; line-height:24px;}
 .hotNews p{ margin:10px 10px 15px;; color:#777; line-height:20px;}
 .hotNews-2-3{width:66%;}
-/*·Ö¸î*/
+/*ï¿½Ö¸ï¿½*/
 #main hr{border:0 none;background-color:#ddd;height:1px; color:#ddd;}
-/*3´ó¿é*/
+/*3ï¿½ï¿½ï¿½*/
 .newslist dt,.newslist h3{ margin:10px; font-size:20px; border-bottom:2px solid #5c307d; padding-bottom:7px;}
-.newslist dd{ line-height:26px; margin-left:10px;}
+.newslist dd{ line-height:26px; margin-left:10px;word-break:keep-all;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
 .newslist li{ margin:0 0 11px 10px; height:61px; font-size:12px;}
 .newslist .date{ width:60px; height:61px; text-align:center; font-family:Arial, Helvetica, sans-serif; float:left; margin-right:10px;}
 .newslist .date p{ font-size:24px; line-height:38px;}
@@ -44,9 +44,9 @@
 .newslist p{ color:#777; padding-top:3px; line-height:18px;}
 
 
-@media screen and (min-width:1140px){/*¿íÆÁ*/
+@media screen and (min-width:1140px){/*ï¿½ï¿½ï¿½ï¿½*/
 }
-@media screen and (max-width:800px){/*ÒÆ¶¯*/
+@media screen and (max-width:800px){/*ï¿½Æ¶ï¿½*/
 	#calender,#banner  .caption .date{ display:none;}
 	#banner  .caption{ width:auto; height:25px; line-height:25px;  padding-left:5%; width:95%; margin-left:0; left:0;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
 	#banner .fa{ font-size:15px; width:20px; line-height:20px; margin-top:-10px;}

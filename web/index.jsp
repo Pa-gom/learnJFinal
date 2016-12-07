@@ -1,11 +1,10 @@
-<%--
+<!--
   Created by IntelliJ IDEA.
   User: Ezreal
   Date: 2016/12/6
   Time: 11:16
   To change this template use File | Settings | File Templates.
---%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+-->
 <!DOCTYPE html>
 <head>
     <meta name="viewport" content="initial-scale=1, width=device-width, maximum-scale=1, user-scalable=no">
@@ -46,7 +45,7 @@
 </head>
 
 <body>
-<%@include file="template/header.jsp" %>
+<#include "template/header.jsp"/>
 <div id="banner" style="height:400px">
     <a id="mainImage" href="http://npc.people.com.cn/GB/28320/391019/" target="_blank"><img src="./attach/2016/12/02/249572.jpg" onload="this.style.visibility='visible'"/></a>
     <div class="caption"><div class="date">2016.12.2</div><a href="http://npc.people.com.cn/GB/28320/391019/" target="_blank">“12·4”国家宪法日</a></div>
@@ -171,7 +170,7 @@
 <!-- Start Main -->
 <div id="main">
     <span class="more" style="margin-top:18px"><a target="_blank" href="http://news.fzu.edu.cn">&gt;&gt;更多</a></span>
-    <h3 class="hotNewstitle" >最新动态</h3>
+    <h3 class="hotNewstitle" >通知公告</h3>
     <div class="hotNews hotNews-2-3">
         <h3><a target="_blank" href="http://news.fzu.edu.cn/html/fdyw/2016/12/02/f12ee1ca-8aef-4857-b623-54f638623786.html">徐艺军教授入选2016年全球“高被引科学家”名单</a></h3>
 
@@ -183,17 +182,11 @@
         <p>本报记者　陈旻　通讯员　许晓凤福州大学科技节上，双车演示现场。于佳卉　摄在最近举行的第二届中国“互联网+”大学生创新创业大赛全国总决赛上，福大北斗通信团队捧回了金奖，并与太冠资本成...</p>
     </div>
 
-
     <dl class="newslist">
         <dt class="yahei">校园招聘</dt>
-        <dd>&gt; <a target="_blank" href="./html/fdxx/2016/12/05/5cd507e5-7857-41d3-b45e-9cd2118486be.html" title="第六届“土木杯”国际网球公开赛举行">第六届“土木杯”国际网球公开赛举行</a></dd>
-        <dd>&gt; <a target="_blank" href="./html/fdxx/2016/12/02/f56f30d5-321c-444f-af84-1b6cfe9faba2.html" title="我校举行第四届研究生科学道德与学风建设宣讲教育活动">我校举行第四届研究生科学道德与学风建设宣讲教育...</a></dd>
-        <dd>&gt; <a target="_blank" href="./html/fdxx/2016/12/02/173691e0-d746-435c-95d3-8affbc691696.html" title="我校徐艺军教授入选2016年全球“高被引科学家”名单">我校徐艺军教授入选2016年全球“高被引科学家”名...</a></dd>
-        <dd>&gt; <a target="_blank" href="./html/fdxx/2016/12/02/3855717e-f89c-4f5b-bc85-85f8776dae42.html" title="喜讯：我校学生在“创青春”第三届福建省青年创新创业大赛中再创佳绩">喜讯：我校学生在“创青春”第三届福建省青年创新...</a></dd>
-        <dd>&gt; <a target="_blank" href="./html/fdxx/2016/12/02/7cca08ec-2bdf-4a6f-ae0a-2555574cac28.html" title="喜讯：我校“福大易班”荣获全国“十佳易班特色应用”称号">喜讯：我校“福大易班”荣获全国“十佳易班特色应...</a></dd>
-        <dd>&gt; <a target="_blank" href="./html/fdxx/2016/11/30/57bf7ff7-81ec-48fa-b6dc-651d719057d4.html" title="校党委中心组举行党的十八届六中全会精神学习会暨“两学一做”学习教育第三专题学习研讨">校党委中心组举行党的十八届六中全会精神学习会暨...</a></dd>
-        <dd>&gt; <a target="_blank" href="./html/fdxx/2016/11/30/9a1bf95d-0d4c-4c27-b2b8-c86dc30f0e72.html" title="我校刘成禹教授荣获中国产学研合作创新成果一等奖">我校刘成禹教授荣获中国产学研合作创新成果一等奖</a></dd>
-        <dd>&gt; <a target="_blank" href="./html/fdxx/2016/11/30/f280ceb8-3c55-467c-b676-4ea91cf0c57a.html" title="我校多名校友当选中共福建省第十届委员会委员、常委和省第十届纪委委员">我校多名校友当选中共福建省第十届委员会委员、常...</a></dd>
+        <#list schoolList.getList() as x>
+        <dd>&gt; <a target="_blank" href="/detail/${x.empRecruitNo}" title="${x.empRecruitTitle}">${x.empRecruitTitle}</a></dd>
+        </#list>
         <span class="more"><a target="_blank" href="./html/fdxx/1.html">&gt;&gt;更多</a></span>
     </dl>
 
@@ -218,7 +211,7 @@
         <span class="more"><a target="_blank" href="http://news.fzu.edu.cn/html/mtfd/1.html">&gt;&gt;更多</a></span>
     </dl>
     <div class="newslist">
-        <dt class="yahei">大型招聘会</dt>
+        <dt class="yahei">实习招聘</dt>
 
 
         <li><div class="date"><p>01</p>2016-12</div>
@@ -238,6 +231,19 @@
         </li>
         <span class="more" style="margin-top:0"><a target="_blank" href="./html/jzbg/1.html">&gt;&gt;更多</a></span>
 
+    </div>
+
+    <span class="more" style="margin-top:18px"><a target="_blank" href="http://news.fzu.edu.cn">&gt;&gt;更多</a></span>
+    <h3 class="hotNewstitle" >大型招聘会</h3>
+    <div class="hotNews hotNews-2-3">
+        <h3><a target="_blank" href="http://news.fzu.edu.cn/html/fdyw/2016/12/02/f12ee1ca-8aef-4857-b623-54f638623786.html">徐艺军教授入选2016年全球“高被引科学家”名单</a></h3>
+
+        <p>新闻中心讯/据Clarivate Analytics（原汤森路透知识产权与科技事业部）2016年11月16日正式公布的2016年全球“高被引科学家(Highly Cited Researchers 2016)”名单，共有136名中国大陆科研人员入选。福州大学化学学院徐艺军教授入选2016年度化学学科领域的全球高被引科学家，也是福大作为第一单位进入2016年全球“高被引科学家”名单的唯一学者。2016年全球“高被引科学家”名单是从ESI的21个自然和社会科学领域甄选出3000余位科研人员，这些科研人员在2004年1月至2014年12月共11年间发表的高被引论文（即在同年度、同...</p>
+    </div>
+    <div class="hotNews">
+        <h3><a target="_blank" href="http://news.fzu.edu.cn/html/mtfd/2016/12/01/188ea158-8331-4197-aded-47bd0f35239d.html">福建日报、东南网、网易（2016-12-1）： 福州大学：双创教育，让大学生勇敢追梦</a></h3>
+
+        <p>本报记者　陈旻　通讯员　许晓凤福州大学科技节上，双车演示现场。于佳卉　摄在最近举行的第二届中国“互联网+”大学生创新创业大赛全国总决赛上，福大北斗通信团队捧回了金奖，并与太冠资本成...</p>
     </div>
 </div>
 <%@ include file="template/footer.jsp" %>

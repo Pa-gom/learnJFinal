@@ -1,12 +1,11 @@
-<%--
+<!--
   Created by IntelliJ IDEA.
   User: Ezreal
   Date: 2016/12/6
   Time: 11:40
   To change this template use File | Settings | File Templates.
---%>
-<%--必须在这里重新设置字符集，否则会乱码--%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+-->
+<!--必须在这里重新设置字符集，否则会乱码-->
 <div id="mobile-nav">
     <a href="javascript:void(0);" id="call-mbnav"><i class="fa fa-bars menuicon"></i></a>
     <ul>
