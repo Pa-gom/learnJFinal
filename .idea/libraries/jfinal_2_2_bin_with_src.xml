@@ -1,0 +1,9 @@
+<component name="libraryTable">
+  <library name="jfinal-2.2-bin-with-src">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/out/artifacts/learnJFinal_war_exploded/WEB-INF/lib/jfinal-2.2-bin-with-src.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

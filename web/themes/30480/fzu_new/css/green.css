@@ -1,0 +1,54 @@
+/*#header{ border-top:7px solid green;}*/
+/*#top,#top a{ color:green;}*/
+#notice:hover {  background: green;}
+#noticeMore{ background:green;}
+#noticeMore li:hover{ background:#037EB3;}
+#noticeMore li a:hover{ color:#FFF;}
+#noticeMore li a{ color:#FFF;}
+#noticeMore li:hover{ background:#425208;}
+
+#searcher button{ background:green;}/*主色调*/
+/*#nav table td a{color:green;}*/
+#nav table td:hover{ background:green;}
+#nav table td a:hover{ color:#FFF;}
+#nav table td:hover a{ color:#FFF;}
+#nav table td ul{ background:green;}
+#banner .page{ background:#732C7C;}
+#banner  .caption .date{ background:green;}
+#calender{background:green;}
+#nav table td ul li:hover{ background:#425208;}/*下拉菜单选中颜色*/
+/*.hotNews h3 a{ color:#54205B;}
+.newslist dt a,.newslist h3 a{ color:#60132D;}*/
+.newslist .date,.newslist .date p{ background:green; color:#ffffff;}
+#links{ background:#F8F7F3;}
+#fastlinks{ color:#60132D;}
+/*#fastlinks a{ color:#60202D;}*/
+#footer{ background:green;}
+
+.leftNav {border-left:12px solid green; }
+.leftNav h3 {background:green;color:#ffffff}
+.leftNav .menuicon {color: #fff;}
+.leftNav li {border-bottom:1px solid #ddd;}
+.leftNav ul {border-top:1px solid #ddd;}
+.leftNav li a {color:#22132d;}
+.leftNav li i {color:green; border-left:1px solid #ddd;}
+.leftNav li i:hover,.leftNav li i.current {background:#f7f7f7; }
+.leftNav li a:hover {color:#4F608C; }
+.leftNav li.current a {border-left:4px solid #ff9600;color:green; }
+.leftNav li ul {background:#f7f7f7;border-left:4px solid green;}
+.leftNav li ul li {border-top:1px solid #ddd;}
+.leftNav li.current ul {border-left:4px solid #ff9600; }
+.leftNav li.current ul li a,.leftNav li ul li a {color:#22132d;}
+.leftNav li ul li a:hover {background:#f0f0f0; }
+/*#rside2 h1{ color:green;}*/
+#rside2 h1.txtTitle{color:#22132d;}
+
+#cat{background:rgba(45,23,61,0.7); background:#2d1739\9; filter:alpha(opacity=70)\9;}
+/*.list_main_content li h3 a{ color:green;}*/
+
+@media screen and (max-width:800px){
+	#searcher{background:-webkit-gradient(linear,center top,center bottom,from(#7B40A8), to(#492663));background:linear-gradient( top,#7B40A8,#492663);}
+/*	#searcher button{ background:url(../images/searchBtnLight.png);}*/
+	#banner .page{ background:none;}
+	#call-mbnav{background-color:#D42A2A;;}
+}

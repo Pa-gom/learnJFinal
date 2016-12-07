@@ -1,0 +1,58 @@
+@charset "utf-8";
+/*首页*/
+/*横幅*/
+#banner{ text-align:center; position:relative; max-width:1200px; margin-left:auto; margin-right:auto; height:auto;background:url(../images/loading.gif) center no-repeat;}
+#banner img{ width:100%; max-width:1200px;}
+#banner  .caption{ width:862px; height:55px; line-height:55px; padding-top:5px; background:rgba(0,0,0,0.5); position:absolute; bottom:0; left:50%; margin-left:-501px; text-align:left; font-size:20px; color:#fff; font-family:Microsoft YaHei; padding-left:140px}
+#banner  .caption .date{ width:120px; line-height:50px; position:absolute; bottom:0; left:0; text-align:center; font-size:20px; vertical-align:bottom; overflow:hidden;}
+#banner  .caption a{ color:#fff; float: right;padding-right: 1em;}
+#calender{ width:972px; margin:0 auto; line-height:40px; position:relative; padding-left:30px; color:#aaa; font-family:Microsoft YaHei;}
+#prevMouth,#nextMouth{ color:#fff; position:absolute; text-align:center; padding-left:14px; padding-right:14px; font-weight:bold;}
+#prevMouth{ left:0;}#nextMouth{right:0;}
+#days{ padding-left:10px;}
+#days a,#days span{ padding:5px 8px 5px 7px; font-size:14px;}
+.Mouth{ font-size:18px; color:#EEE;}
+#days a{color:#fff;}#days a.cur{color:#Fc0;}
+#days a:hover{ background:#703d97;}
+#banner .fa{ position:absolute; top:50%; font-size:20px; color:#fff; width:40px; line-height:40px; margin-top:-20px; border:2px solid #fff; -moz-border-radius:50%;border-radius:50%;}
+#banner .fa:hover{ background:rgba(0,0,0,0.5);}
+#banner .next{ right:5px;}#banner .prev{ left:5px;}
+
+
+/*重大节日*/
+/*
+#headline{ padding:35px; line-height:30px; background:url(../images/headline.png) center bottom no-repeat;}
+#headline h1{ text-align:center; font-size:22px;}
+#headline h2{ text-align:center; font-size:16px; font-weight:normal;}
+*/
+
+#main{ padding:5px 0px 20px 0px;}
+/*头三条*/
+.hotNews,.newslist{ display:inline-block; *zoom:1;*display:inline; width:32.9%; vertical-align:top;}
+.hotNews h3{ margin:0 10px 5px; font-size:16px; line-height:24px;}
+.hotNews p{ margin:10px 10px 15px;; color:#777; line-height:20px;}
+.hotNews-2-3{width:66%;}
+/*分割*/
+#main hr{border:0 none;background-color:#ddd;height:1px; color:#ddd;}
+/*3大块*/
+.newslist dt,.newslist h3{ margin:10px; font-size:20px; border-bottom:2px solid #5c307d; padding-bottom:7px;}
+.newslist dd{ line-height:26px; margin-left:10px;}
+.newslist li{ margin:0 0 11px 10px; height:61px; font-size:12px;}
+.newslist .date{ width:60px; height:61px; text-align:center; font-family:Arial, Helvetica, sans-serif; float:left; margin-right:10px;}
+.newslist .date p{ font-size:24px; line-height:38px;}
+.newslist h4{ font-size:14px; line-height:20px; display:inline;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+.newslist p{ color:#777; padding-top:3px; line-height:18px;}
+
+
+@media screen and (min-width:1140px){/*宽屏*/
+}
+@media screen and (max-width:800px){/*移动*/
+	#calender,#banner  .caption .date{ display:none;}
+	#banner  .caption{ width:auto; height:25px; line-height:25px;  padding-left:5%; width:95%; margin-left:0; left:0;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+	#banner .fa{ font-size:15px; width:20px; line-height:20px; margin-top:-10px;}
+	.hotNews p,#main hr{ display:none;}
+	.hotNews,.newslist,.hotNews-2-3{ width:98%;}
+	.hotNews h3,.newslist dd{overflow: hidden;white-space: nowrap;text-overflow: ellipsis;}
+	.newslist{ border-top:1px solid #eee; margin-top:5px;}
+	.newslist dt,.newslist h3{ font-size:16px;}
+}

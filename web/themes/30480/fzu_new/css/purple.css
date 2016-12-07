@@ -1,0 +1,54 @@
+/*#header{ border-top:7px solid #5A2E79;}*/
+/*#top,#top a{ color:#5A2E79;}*/
+#notice:hover {  background: #5A2E79;}
+#noticeMore{ background:#5A2E79;}
+#noticeMore li:hover{ background:#5A2E79;}
+#noticeMore li a:hover{ color:#FFF;}
+#noticeMore li a{ color:#FFF;}
+#noticeMore li:hover{ background:#3D1C55;}
+
+#searcher button{ background:#5A2E79;}
+/*#nav table td a{color:#5A2E79;}*/
+#nav table td:hover{ background:#5A2E79;}
+#nav table td a:hover{ color:#FFF;}
+#nav table td:hover a{ color:#FFF;}
+#nav table td ul{ background:#5A2E79;}
+#banner .page{ background:#732C7C;}
+#banner  .caption .date{ background:#5A2E79;}
+#calender{background:#5A2E79;}
+#nav table td ul li:hover{ background:#3D1C55;}
+/*.hotNews h3 a{ color:#54205B;}
+.newslist dt a,.newslist h3 a{ color:#60132D;}*/
+.newslist .date,.newslist .date p{ background: #5B317D; color: #ffffff;}
+#links{ background:#F8F7F3;}
+#fastlinks{ color:#60132D;}
+/*#fastlinks a{ color:#60202D;}*/
+#footer{ background:#472562;}
+
+.leftNav {border-left:12px solid #5c307d; }
+.leftNav h3 {background:#5c307d;color:#ffffff}
+.leftNav .menuicon {color: #fff;}
+.leftNav li {border-bottom:1px solid #ddd;}
+.leftNav ul {border-top:1px solid #ddd;}
+.leftNav li a {color:#22132d;}
+.leftNav li i {color:#5c307d; border-left:1px solid #ddd;}
+.leftNav li i:hover,.leftNav li i.current {background:#f7f7f7; }
+.leftNav li a:hover {color:#4F608C; }
+.leftNav li.current a {border-left:4px solid #ff9600;color:#5c307d; }
+.leftNav li ul {background:#f7f7f7;border-left:4px solid #5c307d;}
+.leftNav li ul li {border-top:1px solid #ddd;}
+.leftNav li.current ul {border-left:4px solid #ff9600; }
+.leftNav li.current ul li a,.leftNav li ul li a {color:#22132d;}
+.leftNav li ul li a:hover {background:#f0f0f0; }
+/*#rside2 h1{ color:#5c307d;}*/
+#rside2 h1.txtTitle{color:#22132d;}
+
+#cat{background:rgba(45,23,61,0.7); background:#2d1739\9; filter:alpha(opacity=70)\9;}
+/*.list_main_content li h3 a{ color:#5A2E79;}*/
+
+@media screen and (max-width:800px){
+	#searcher{background:-webkit-gradient(linear,center top,center bottom,from(#7B40A8), to(#492663));background:#492663;}
+/*	#searcher button{ background:url(../images/searchBtnLight.png);}*/
+	#banner .page{ background:none;}
+	#call-mbnav{background-color:#D42A2A;;}
+}

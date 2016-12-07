@@ -1,0 +1,28 @@
+/*内容页*/
+.detail_content_info h1{line-height:2em; font-size:2em; color:#333333; text-align:center; font-family:simhei; padding-top:10px;}
+.detail_content_info h2{ text-align:center; color:#333333; margin-bottom:10px; font-size:1.5em;}
+.detail_content_info{ text-align: center;border-bottom: solid 1px #cccccc;line-height:28px; margin:0 10px 15px 0;font-size:14px;font-family:宋体,"Lucida Sans Unicode","Lucida Grande", Tahoma,Arial, Helvetica, sans-serif}
+.detail_content_info i{padding-left: 20px;/*color: #2365a8;*/font-style:normal;}
+.detail_content_info p{font-size: 20px;font-family: 宋体,"Lucida Sans Unicode","Lucida Grande", Tahoma,Arial, Helvetica, sans-serif;}
+.detail_content_display { font-size: 20px; line-height:1.5;}
+
+.tdl {font-size:16px; line-height: 22px;}
+.main-content-details{padding:0; margin:5px 5px 5px 5px;font-size:13px;	line-height:22px;}
+.main-content-details-more{padding:0; margin:7px 0px 0px 0px;height:15px;text-align:right;padding-right:15px;}
+
+.main-content-album-item{float:left;padding:0; margin:10px 10px 10px 20px;;width:186px;margin-bottom:10px;}
+.main-content-album-item .main-content-album{adding:0; margin:0 auto;width:178px;border:1px solid #CCC;}
+.main-content-album-item .main-content-album .main-content-album-thumb{	margin:2px;width:174px;	height:121px;-moz-box-shadow: 0 0 30px #CCC;-webkit-box-shadow: 0 0 30px #CCC;background: #FFF;	background: -webkit-gradient(linear, left top, left 15, from(#FFFFFF), color-stop(4%, #EEEEEE), to(#FFFFFF));background: -moz-linear-gradient(top, #FFFFFF, #EEEEEE 1px, #FFFFFF 15px);}
+.main-content-album-item .main-content-album .main-content-album-thumb-des{margin:2px;height:18px;width:174px;padding-top:4px;text-align:center;}
+
+@media screen and (max-width:800px){/*移动*/
+    .detail_content_info{ line-height:25px;}
+    .detail_content_info h1{ font-size:16px; line-height:22px;}
+    .detail_content_info h2{ font-size:13px; margin-bottom:0; line-height:18px;}
+    .detail_content_info:after{visibility:hidden; display:block; font-size:0; content:" "; clear:both; height:0;}
+    .detail_content_info i,.detail_content_info .author{ display:none;}
+    .detail_content_info time{ float:right; color:#666;}
+    #readcount{ float:left; color:#666;}
+    .detail_content_info time:before{content: "\f017"; font-family:FontAwesome; margin-right:5px;}
+    #readcount:before{content: "\f06e"; font-family:FontAwesome; margin-right:5px;}
+}
