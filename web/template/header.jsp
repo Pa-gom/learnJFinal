@@ -54,7 +54,7 @@
             </div>
             <script>
                 function setTheme(t){
-                    document.getElementById("themeCss").href="./themes/30480/fzu_new/css/"+t+".css";
+                    document.getElementById("themeCss").href="/themes/30480/fzu_new/css/"+t+".css";
                     localData.set("theme",t);
                 }
                 if(localData.get("theme")){
@@ -62,7 +62,7 @@
                 }
             </script>
             <a id="logo" href="./">
-                <img src="./themes/30480/fzu_new/images/logo.gif" style="float: left;"/>
+                <img src="/themes/30480/fzu_new/images/logo.gif" style="float: left;"/>
             </a>
             <form id="searcher" action="/html/search.html" method="post">
                 <input type="text" value="" name="keyword"/><button><i class="fa fa-search"></i></button>
@@ -96,8 +96,8 @@
                         <td><a href="">中心介绍</a></td>
                         <td><a target="_self" href="./html/zjfd/1.html">走进校园<i class="fa">&#xf107;</i></a>
                             <ul>
-                                <li><a target="_self" href="./html/zjfd/bgxx/1.html">办公信息</a></li>
-                                <li><a target="_self" href="./html/zjfd/syxx/1.html">实用信息</a></li>
+                                <li><a target="_self" href="/html/zjfd/bgxx/1.html">办公信息</a></li>
+                                <li><a target="_self" href="/html/zjfd/syxx/1.html">实用信息</a></li>
                             </ul>
                         </td>
                     </tr>

@@ -9,6 +9,7 @@ import net.evecom.college.framework.controller.HelloController;
 import net.evecom.college.framework.controller.IndexController;
 import net.evecom.college.framework.model.EmpCollegeIndex;
 import net.evecom.college.framework.model.EmpRecruitInfo;
+import net.evecom.college.framework.model.EmpRecruitTypeIndex;
 import net.evecom.college.framework.model.User;
 import net.evecom.college.framework.routes.AdminRoutes;
 import net.evecom.college.framework.routes.FrontRoutes;
@@ -39,6 +40,7 @@ public class BaseConfig extends JFinalConfig{
         me.add(arp);
         arp.addMapping("emp_college_index","empCollegeNo", User.class);
         arp.addMapping("emp_recruit_info", "empRecruitNo", EmpRecruitInfo.class);
+        arp.addMapping("emp_recruit_type_index","empRecruitTypeNo", EmpRecruitTypeIndex.class);
     }
 
     @Override

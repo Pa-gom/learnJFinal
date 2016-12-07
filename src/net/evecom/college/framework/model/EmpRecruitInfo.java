@@ -15,7 +15,27 @@ import java.util.ArrayList;
 public class EmpRecruitInfo extends Model<EmpRecruitInfo> {
     public static final EmpRecruitInfo dao = new EmpRecruitInfo();
 
+    /**
+     * 获取招聘信息列表
+     * @param pageNum
+     * @param pageSize
+     * @return
+     */
     public Page<EmpRecruitInfo> getEmpRecruitInfoList(int pageNum, int pageSize){
         return paginate(pageNum,pageSize,"select *","from emp_recruit_info where empRecruitType = 1 and empRecruitState = 1 order by empRecruitNo desc");
+    }
+
+    /**
+     * 获取单条招聘信息
+     * @param id
+     * @return
+     */
+    public EmpRecruitInfo getEmpRecruitInfo(String id){
+        return dao.findById(id);
+    }
+
+    public String getCurrentColumnName(String id){
+        String typeId = getEmpRecruitInfo(id).getStr("empRecruitType");
+        return EmpRecruitTypeIndex.dao.getEmpRecruitTypeName(typeId);
     }
 }
