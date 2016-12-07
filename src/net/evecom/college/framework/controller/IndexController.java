@@ -23,8 +23,6 @@ public class IndexController extends Controller{
      */
     public void detail(){
 
-        System.out.print(getPara());
-
         render("/content.jsp");
     }
 }
