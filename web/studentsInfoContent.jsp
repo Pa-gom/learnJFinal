@@ -62,9 +62,7 @@
             </div>
             <div style="width:100%;margin:10px; line-height: 28px; font-size: 16px;">
 
-
                 ${studentsInfo.empContent}
-
 
             </div>
             <div style="clear:both"></div>
