@@ -1,0 +1,831 @@
+<dataSource name="MySQL - fzujob@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="2.6">
+    <schema id="1" name="fzujob">
+      <visible>1</visible>
+    </schema>
+    <schema id="2" name="information_schema" />
+    <schema id="3" name="mysql" />
+    <schema id="4" name="performance_schema" />
+    <schema id="5" name="test" />
+    <table id="6" parent="1" name="emp_college_index" />
+    <table id="7" parent="1" name="emp_college_profession_index" />
+    <table id="8" parent="1" name="emp_company_credit_index" />
+    <table id="9" parent="1" name="emp_company_info" />
+    <table id="10" parent="1" name="emp_company_state_index" />
+    <table id="11" parent="1" name="emp_company_type_index" />
+    <table id="12" parent="1" name="emp_computer_level_index" />
+    <table id="13" parent="1" name="emp_contrac_info" />
+    <table id="14" parent="1" name="emp_contract_state_index" />
+    <table id="15" parent="1" name="emp_english_level_index" />
+    <table id="16" parent="1" name="emp_entry_type_index" />
+    <table id="17" parent="1" name="emp_exam_type_index" />
+    <table id="18" parent="1" name="emp_graduate_info" />
+    <table id="19" parent="1" name="emp_industry_index" />
+    <table id="20" parent="1" name="emp_jobfair_info" />
+    <table id="21" parent="1" name="emp_jobfair_state_index" />
+    <table id="22" parent="1" name="emp_jobfair_type_index" />
+    <table id="23" parent="1" name="emp_minority_index" />
+    <table id="24" parent="1" name="emp_place_apply_info" />
+    <table id="25" parent="1" name="emp_place_apply_state_index" />
+    <table id="26" parent="1" name="emp_place_info" />
+    <table id="27" parent="1" name="emp_place_state_index" />
+    <table id="28" parent="1" name="emp_political_status_index" />
+    <table id="29" parent="1" name="emp_profession_index" />
+    <table id="30" parent="1" name="emp_province_index" />
+    <table id="31" parent="1" name="emp_recruit_info" />
+    <table id="32" parent="1" name="emp_recruit_state_index" />
+    <table id="33" parent="1" name="emp_recruit_type_index" />
+    <table id="34" parent="1" name="emp_sex_index" />
+    <table id="35" parent="1" name="emp_student_base_info" />
+    <table id="36" parent="1" name="emp_student_marry_index" />
+    <table id="37" parent="1" name="emp_stuff_info" />
+    <table id="38" parent="1" name="emp_sys_info" />
+    <column id="39" parent="6" name="empCollegeNo">
+      <mandatory>1</mandatory>
+      <data-type>int(2)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="40" parent="6" name="empCollegeName">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <key id="41" parent="6" name="PRIMARY">
+      <columns>empCollegeNo</columns>
+      <primary>1</primary>
+    </key>
+    <column id="42" parent="7" name="empProfessionNo">
+      <mandatory>1</mandatory>
+      <data-type>int(4)|0</data-type>
+      <default-expression>'0'</default-expression>
+    </column>
+    <column id="43" parent="7" name="empCollegeNo">
+      <data-type>int(2)|0</data-type>
+    </column>
+    <key id="44" parent="7" name="PRIMARY">
+      <columns>empProfessionNo</columns>
+      <primary>1</primary>
+    </key>
+    <column id="45" parent="8" name="empCompanyCreditNo">
+      <mandatory>1</mandatory>
+      <data-type>int(8)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="46" parent="8" name="empCompanyCreditName">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <key id="47" parent="8" name="PRIMARY">
+      <columns>empCompanyCreditNo</columns>
+      <primary>1</primary>
+    </key>
+    <column id="48" parent="9" name="empCompanyNo">
+      <mandatory>1</mandatory>
+      <data-type>int(8)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="49" parent="9" name="empCompanyName">
+      <data-type>varchar(40)|0</data-type>
+    </column>
+    <column id="50" parent="9" name="empCompanyCode">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="51" parent="9" name="empCompanyPass">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="52" parent="9" name="empCompanyPresident">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="53" parent="9" name="empCompanyType">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="54" parent="9" name="empCompanyMoney">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="55" parent="9" name="empCompanyRange">
+      <data-type>text|0</data-type>
+    </column>
+    <column id="56" parent="9" name="empCompanyCreateDate">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="57" parent="9" name="empCompanyRegister">
+      <data-type>varchar(80)|0</data-type>
+    </column>
+    <column id="58" parent="9" name="empCompanyLocate">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="59" parent="9" name="empCompanyContacter">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="60" parent="9" name="empCompanyContacterTel">
+      <data-type>varchar(12)|0</data-type>
+    </column>
+    <column id="61" parent="9" name="empCompanyMail">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <column id="62" parent="9" name="empCompanyState">
+      <data-type>varchar(10)|0</data-type>
+    </column>
+    <column id="63" parent="9" name="empCompanyCredit">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="64" parent="9" name="empCompanyCreditMaker">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <key id="65" parent="9" name="PRIMARY">
+      <columns>empCompanyNo</columns>
+      <primary>1</primary>
+    </key>
+    <column id="66" parent="10" name="empCompanyStateNo">
+      <mandatory>1</mandatory>
+      <data-type>int(2)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="67" parent="10" name="empCompanyStateName">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <key id="68" parent="10" name="PRIMARY">
+      <columns>empCompanyStateNo</columns>
+      <primary>1</primary>
+    </key>
+    <column id="69" parent="11" name="empCompanyTypeNo">
+      <mandatory>1</mandatory>
+      <data-type>int(2)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="70" parent="11" name="empCompanyTypeName">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <key id="71" parent="11" name="PRIMARY">
+      <columns>empCompanyTypeNo</columns>
+      <primary>1</primary>
+    </key>
+    <column id="72" parent="12" name="empComputerLevelNo">
+      <mandatory>1</mandatory>
+      <data-type>int(2)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="73" parent="12" name="empComputerLevelName">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <key id="74" parent="12" name="PRIMARY">
+      <columns>empComputerLevelNo</columns>
+      <primary>1</primary>
+    </key>
+    <column id="75" parent="13" name="empContractNo">
+      <mandatory>1</mandatory>
+      <data-type>int(8)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="76" parent="13" name="empCompanyName">
+      <data-type>varchar(40)|0</data-type>
+    </column>
+    <column id="77" parent="13" name="empCompanyCode">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="78" parent="13" name="empCompanyPresident">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="79" parent="13" name="empCompanyType">
+      <data-type>varchar(2)|0</data-type>
+    </column>
+    <column id="80" parent="13" name="empCompanyContact">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="81" parent="13" name="empCompanyContactTel">
+      <data-type>varchar(12)|0</data-type>
+    </column>
+    <column id="82" parent="13" name="empCompanyContactMail">
+      <data-type>varchar(40)|0</data-type>
+    </column>
+    <column id="83" parent="13" name="empCompanyJob">
+      <data-type>varchar(40)|0</data-type>
+    </column>
+    <column id="84" parent="13" name="empCompanyJobAddress">
+      <data-type>varchar(200)|0</data-type>
+    </column>
+    <column id="85" parent="13" name="empCompanyDate">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="86" parent="13" name="empCompanyYears">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="87" parent="13" name="empCompanyJoinWordDate">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="88" parent="13" name="empContractStudentName">
+      <data-type>varchar(29)|0</data-type>
+    </column>
+    <column id="89" parent="13" name="empContractStudentNo">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="90" parent="13" name="empContractStudentIdCode">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="91" parent="13" name="empContractStudentCollege">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="92" parent="13" name="empContractStudentIndustry">
+      <data-type>varchar(200)|0</data-type>
+    </column>
+    <column id="93" parent="13" name="empContractStudentTel">
+      <data-type>varchar(12)|0</data-type>
+    </column>
+    <column id="94" parent="13" name="empContractStudentMail">
+      <data-type>varchar(40)|0</data-type>
+    </column>
+    <column id="95" parent="13" name="empContractStudentGrade">
+      <data-type>varchar(8)|0</data-type>
+    </column>
+    <column id="96" parent="13" name="empContractState">
+      <data-type>varchar(40)|0</data-type>
+    </column>
+    <key id="97" parent="13" name="PRIMARY">
+      <columns>empContractNo</columns>
+      <primary>1</primary>
+    </key>
+    <column id="98" parent="14" name="empContractStateNo">
+      <mandatory>1</mandatory>
+      <data-type>int(2)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="99" parent="14" name="empContractStateName">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <key id="100" parent="14" name="PRIMARY">
+      <columns>empContractStateNo</columns>
+      <primary>1</primary>
+    </key>
+    <column id="101" parent="15" name="empEnglishLevelNo">
+      <mandatory>1</mandatory>
+      <data-type>int(2)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="102" parent="15" name="empEnglishLevelName">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <key id="103" parent="15" name="PRIMARY">
+      <columns>empEnglishLevelNo</columns>
+      <primary>1</primary>
+    </key>
+    <column id="104" parent="16" name="empEntryTypeNo">
+      <mandatory>1</mandatory>
+      <data-type>int(2)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="105" parent="16" name="empEntryTypeName">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <key id="106" parent="16" name="PRIMARY">
+      <columns>empEntryTypeNo</columns>
+      <primary>1</primary>
+    </key>
+    <column id="107" parent="17" name="empExamTypeNo">
+      <mandatory>1</mandatory>
+      <data-type>int(2)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="108" parent="17" name="empExamTypeName">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <key id="109" parent="17" name="PRIMARY">
+      <columns>empExamTypeNo</columns>
+      <primary>1</primary>
+    </key>
+    <column id="110" parent="18" name="empGraduateQueue">
+      <mandatory>1</mandatory>
+      <data-type>int(8)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="111" parent="18" name="empStudentNo">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="112" parent="18" name="empPoliticalStatus">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="113" parent="18" name="empGraduateDate">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="114" parent="18" name="empSecondQualification">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="115" parent="18" name="empSecondProfession">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="116" parent="18" name="empEnglishLevel">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="117" parent="18" name="empComPuterLevel">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <column id="118" parent="18" name="empTall">
+      <data-type>varchar(10)|0</data-type>
+    </column>
+    <column id="119" parent="18" name="empMail">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <column id="120" parent="18" name="empTel">
+      <data-type>varchar(12)|0</data-type>
+    </column>
+    <column id="121" parent="18" name="empHomeTel">
+      <data-type>varchar(12)|0</data-type>
+    </column>
+    <column id="122" parent="18" name="empSeeing">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="123" parent="18" name="empFamilyMembers">
+      <data-type>text|0</data-type>
+    </column>
+    <column id="124" parent="18" name="empRewords">
+      <data-type>text|0</data-type>
+    </column>
+    <column id="125" parent="18" name="empWorks">
+      <data-type>text|0</data-type>
+    </column>
+    <column id="126" parent="18" name="empJobIntension">
+      <data-type>text|0</data-type>
+    </column>
+    <column id="127" parent="18" name="empScientificStatus">
+      <data-type>text|0</data-type>
+    </column>
+    <column id="128" parent="18" name="empState">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <key id="129" parent="18" name="PRIMARY">
+      <columns>empGraduateQueue</columns>
+      <primary>1</primary>
+    </key>
+    <column id="130" parent="19" name="empIndustryNo">
+      <mandatory>1</mandatory>
+      <data-type>int(2)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="131" parent="19" name="empIndustryName">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <key id="132" parent="19" name="PRIMARY">
+      <columns>empIndustryNo</columns>
+      <primary>1</primary>
+    </key>
+    <column id="133" parent="20" name="empJobFairNo">
+      <mandatory>1</mandatory>
+      <data-type>int(8)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="134" parent="20" name="empJobFairTitle">
+      <data-type>varchar(400)|0</data-type>
+    </column>
+    <column id="135" parent="20" name="empJobFairType">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="136" parent="20" name="empJobFairContent">
+      <data-type>text|0</data-type>
+    </column>
+    <column id="137" parent="20" name="empJobFairDateTime">
+      <data-type>varchar(40)|0</data-type>
+    </column>
+    <column id="138" parent="20" name="empJobFairAttach">
+      <data-type>varchar(400)|0</data-type>
+    </column>
+    <column id="139" parent="20" name="empJobFairPublisher">
+      <data-type>varchar(50)|0</data-type>
+    </column>
+    <column id="140" parent="20" name="empJobFairPublishDateTime">
+      <data-type>varchar(40)|0</data-type>
+    </column>
+    <column id="141" parent="20" name="empJobFairHits">
+      <data-type>int(8)|0</data-type>
+    </column>
+    <column id="142" parent="20" name="empJobFairState">
+      <data-type>int(2)|0</data-type>
+    </column>
+    <key id="143" parent="20" name="PRIMARY">
+      <columns>empJobFairNo</columns>
+      <primary>1</primary>
+    </key>
+    <column id="144" parent="21" name="empJobFairStateNo">
+      <mandatory>1</mandatory>
+      <data-type>int(2)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="145" parent="21" name="empJobFairStateName">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <key id="146" parent="21" name="PRIMARY">
+      <columns>empJobFairStateNo</columns>
+      <primary>1</primary>
+    </key>
+    <column id="147" parent="22" name="empJobFairTypeNo">
+      <mandatory>1</mandatory>
+      <data-type>int(2)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="148" parent="22" name="empJobFairTypeName">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <key id="149" parent="22" name="PRIMARY">
+      <columns>empJobFairTypeNo</columns>
+      <primary>1</primary>
+    </key>
+    <column id="150" parent="23" name="empMinorityNo">
+      <mandatory>1</mandatory>
+      <data-type>int(2)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="151" parent="23" name="empMinorityName">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <key id="152" parent="23" name="PRIMARY">
+      <columns>empMinorityNo</columns>
+      <primary>1</primary>
+    </key>
+    <column id="153" parent="24" name="empPlaceNo">
+      <mandatory>1</mandatory>
+      <data-type>int(4)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="154" parent="24" name="empPlaceName">
+      <data-type>varchar(400)|0</data-type>
+    </column>
+    <column id="155" parent="24" name="empPlaceCompany">
+      <data-type>varchar(400)|0</data-type>
+    </column>
+    <column id="156" parent="24" name="empPlaceCompanyCode">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="157" parent="24" name="empPlacePeoPleName">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="158" parent="24" name="empPlaceStartDateTime">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="159" parent="24" name="empPlaceEndDateTime">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="160" parent="24" name="empPlaceApplyReason">
+      <data-type>varchar(400)|0</data-type>
+    </column>
+    <column id="161" parent="24" name="empPlaceApplyState">
+      <data-type>varchar(10)|0</data-type>
+    </column>
+    <key id="162" parent="24" name="PRIMARY">
+      <columns>empPlaceNo</columns>
+      <primary>1</primary>
+    </key>
+    <column id="163" parent="25" name="empPlaceApplyStateNo">
+      <mandatory>1</mandatory>
+      <data-type>int(2)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="164" parent="25" name="empPlaceApplyStateName">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <key id="165" parent="25" name="PRIMARY">
+      <columns>empPlaceApplyStateNo</columns>
+      <primary>1</primary>
+    </key>
+    <column id="166" parent="26" name="empPlaceNo">
+      <mandatory>1</mandatory>
+      <data-type>int(4)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="167" parent="26" name="empPlaceName">
+      <data-type>varchar(400)|0</data-type>
+    </column>
+    <column id="168" parent="26" name="empPlaceFatherNo">
+      <data-type>varchar(6)|0</data-type>
+    </column>
+    <column id="169" parent="26" name="empPlaceMinPlace">
+      <data-type>varchar(2)|0</data-type>
+    </column>
+    <column id="170" parent="26" name="empPlaceCapacity">
+      <data-type>varchar(4)|0</data-type>
+    </column>
+    <column id="171" parent="26" name="empPlaceIntroduce">
+      <data-type>text|0</data-type>
+    </column>
+    <column id="172" parent="26" name="empPlaceMedia">
+      <data-type>varchar(2)|0</data-type>
+    </column>
+    <column id="173" parent="26" name="empPlaceLecture">
+      <data-type>varchar(2)|0</data-type>
+    </column>
+    <column id="174" parent="26" name="empPlaceMaster">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="175" parent="26" name="empPlaceTel">
+      <data-type>varchar(12)|0</data-type>
+    </column>
+    <column id="176" parent="26" name="empPlaceBack">
+      <data-type>varchar(400)|0</data-type>
+    </column>
+    <column id="177" parent="26" name="empPlaceState">
+      <data-type>varchar(10)|0</data-type>
+    </column>
+    <key id="178" parent="26" name="PRIMARY">
+      <columns>empPlaceNo</columns>
+      <primary>1</primary>
+    </key>
+    <column id="179" parent="27" name="empJobFairStateNo">
+      <mandatory>1</mandatory>
+      <data-type>int(2)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="180" parent="27" name="empJobFairStateName">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <key id="181" parent="27" name="PRIMARY">
+      <columns>empJobFairStateNo</columns>
+      <primary>1</primary>
+    </key>
+    <column id="182" parent="28" name="empPoliticalStatusNo">
+      <mandatory>1</mandatory>
+      <data-type>int(2)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="183" parent="28" name="empPoliticalStatusName">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <key id="184" parent="28" name="PRIMARY">
+      <columns>empPoliticalStatusNo</columns>
+      <primary>1</primary>
+    </key>
+    <column id="185" parent="29" name="empProfessionNo">
+      <mandatory>1</mandatory>
+      <data-type>int(2)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="186" parent="29" name="empProfessionName">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <key id="187" parent="29" name="PRIMARY">
+      <columns>empProfessionNo</columns>
+      <primary>1</primary>
+    </key>
+    <column id="188" parent="30" name="empProvinceNo">
+      <mandatory>1</mandatory>
+      <data-type>int(2)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="189" parent="30" name="empProvinceName">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <key id="190" parent="30" name="PRIMARY">
+      <columns>empProvinceNo</columns>
+      <primary>1</primary>
+    </key>
+    <column id="191" parent="31" name="empRecruitNo">
+      <mandatory>1</mandatory>
+      <data-type>int(8)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="192" parent="31" name="empRecruitTitle">
+      <mandatory>1</mandatory>
+      <data-type>varchar(255)|0</data-type>
+      <default-expression>''</default-expression>
+    </column>
+    <column id="193" parent="31" name="empRecruitType">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="194" parent="31" name="empRecruitHostInfo">
+      <data-type>text|0</data-type>
+    </column>
+    <column id="195" parent="31" name="empRecruitContent">
+      <data-type>text|0</data-type>
+    </column>
+    <column id="196" parent="31" name="empRecruitTime">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="197" parent="31" name="empRecruitWay">
+      <data-type>text|0</data-type>
+    </column>
+    <column id="198" parent="31" name="empRecruitAttach">
+      <data-type>varchar(255)|0</data-type>
+    </column>
+    <column id="199" parent="31" name="empRecruitPublisher">
+      <data-type>varchar(50)|0</data-type>
+    </column>
+    <column id="200" parent="31" name="empRecruitPublishDateTime">
+      <data-type>varchar(40)|0</data-type>
+    </column>
+    <column id="201" parent="31" name="empRecruitHits">
+      <mandatory>1</mandatory>
+      <data-type>int(8)|0</data-type>
+      <default-expression>'0'</default-expression>
+    </column>
+    <column id="202" parent="31" name="empRecruitState">
+      <data-type>varchar(5)|0</data-type>
+    </column>
+    <column id="203" parent="31" name="empRecruitBack">
+      <data-type>text|0</data-type>
+    </column>
+    <key id="204" parent="31" name="PRIMARY">
+      <columns>empRecruitNo</columns>
+      <primary>1</primary>
+    </key>
+    <column id="205" parent="32" name="empRecruitStateNo">
+      <mandatory>1</mandatory>
+      <data-type>int(2)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="206" parent="32" name="empRecruitStateName">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <key id="207" parent="32" name="PRIMARY">
+      <columns>empRecruitStateNo</columns>
+      <primary>1</primary>
+    </key>
+    <column id="208" parent="33" name="empRecruitTypeNo">
+      <mandatory>1</mandatory>
+      <data-type>int(2)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="209" parent="33" name="empRecruitTypeName">
+      <data-type>varchar(30)|0</data-type>
+    </column>
+    <key id="210" parent="33" name="PRIMARY">
+      <columns>empRecruitTypeNo</columns>
+      <primary>1</primary>
+    </key>
+    <column id="211" parent="34" name="empSexNo">
+      <mandatory>1</mandatory>
+      <data-type>int(2)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="212" parent="34" name="empSexName">
+      <data-type>varchar(10)|0</data-type>
+    </column>
+    <key id="213" parent="34" name="PRIMARY">
+      <columns>empSexNo</columns>
+      <primary>1</primary>
+    </key>
+    <column id="214" parent="35" name="empStudentQueue">
+      <mandatory>1</mandatory>
+      <data-type>int(8)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="215" parent="35" name="empStudentNo">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="216" parent="35" name="empStudentPass">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="217" parent="35" name="empStudentName">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="218" parent="35" name="empStudentHeadIcon">
+      <data-type>varchar(200)|0</data-type>
+    </column>
+    <column id="219" parent="35" name="empStudentOldName">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="220" parent="35" name="empStudentNameAlphaSpell">
+      <data-type>varchar(40)|0</data-type>
+    </column>
+    <column id="221" parent="35" name="empStudentSex">
+      <data-type>varchar(2)|0</data-type>
+    </column>
+    <column id="222" parent="35" name="empStudentMinority">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="223" parent="35" name="empStudentLocation">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="224" parent="35" name="empStudentPoliticalStatus">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="225" parent="35" name="empStudentMarry">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="226" parent="35" name="empStudentStuLocation">
+      <data-type>varchar(40)|0</data-type>
+    </column>
+    <column id="227" parent="35" name="empStudentAddress">
+      <data-type>varchar(200)|0</data-type>
+    </column>
+    <column id="228" parent="35" name="empStudentTel">
+      <data-type>varchar(12)|0</data-type>
+    </column>
+    <column id="229" parent="35" name="empStudentPostCode">
+      <data-type>varchar(8)|0</data-type>
+    </column>
+    <column id="230" parent="35" name="empStudentIdNo">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="231" parent="35" name="empStudentExamNo">
+      <data-type>varchar(15)|0</data-type>
+    </column>
+    <column id="232" parent="35" name="empStudentExamType">
+      <data-type>varchar(10)|0</data-type>
+    </column>
+    <column id="233" parent="35" name="empStudentEntryStudyDate">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="234" parent="35" name="empStudentCollege">
+      <data-type>varchar(40)|0</data-type>
+    </column>
+    <column id="235" parent="35" name="empStudentProfession">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="236" parent="35" name="empStudentGrade">
+      <data-type>varchar(5)|0</data-type>
+    </column>
+    <column id="237" parent="35" name="empStudentOldProfession">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="238" parent="35" name="empStudentLevelStudyDate">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="239" parent="35" name="empStudentEmail">
+      <data-type>varchar(40)|0</data-type>
+    </column>
+    <column id="240" parent="35" name="empStudentDevelopLevel">
+      <data-type>varchar(4)|0</data-type>
+    </column>
+    <column id="241" parent="35" name="empStudentEntryStudyType">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="242" parent="35" name="empStudentStudyAspect">
+      <data-type>varchar(40)|0</data-type>
+    </column>
+    <column id="243" parent="35" name="empStudentFecture">
+      <data-type>text|0</data-type>
+    </column>
+    <column id="244" parent="35" name="empStudentException">
+      <data-type>text|0</data-type>
+    </column>
+    <column id="245" parent="35" name="empStudentRewordsAndPanishments">
+      <data-type>text|0</data-type>
+    </column>
+    <key id="246" parent="35" name="PRIMARY">
+      <columns>empStudentQueue</columns>
+      <primary>1</primary>
+    </key>
+    <column id="247" parent="36" name="empStudentMarryNo">
+      <mandatory>1</mandatory>
+      <data-type>int(2)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="248" parent="36" name="empStudentMarryName">
+      <data-type>varchar(10)|0</data-type>
+    </column>
+    <key id="249" parent="36" name="PRIMARY">
+      <columns>empStudentMarryNo</columns>
+      <primary>1</primary>
+    </key>
+    <column id="250" parent="37" name="empStuffNo">
+      <mandatory>1</mandatory>
+      <data-type>int(6)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="251" parent="37" name="empStuffPass">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="252" parent="37" name="empStuffName">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="253" parent="37" name="empStuffSex">
+      <data-type>varchar(2)|0</data-type>
+    </column>
+    <column id="254" parent="37" name="empStuffBirthDate">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="255" parent="37" name="empStuffPost">
+      <data-type>varchar(40)|0</data-type>
+    </column>
+    <column id="256" parent="37" name="empStuffGegree">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="257" parent="37" name="empStuffStuffState">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <key id="258" parent="37" name="PRIMARY">
+      <columns>empStuffNo</columns>
+      <primary>1</primary>
+    </key>
+    <column id="259" parent="38" name="empSysNo">
+      <mandatory>1</mandatory>
+      <data-type>int(6)|0</data-type>
+      <sequence-identity>1</sequence-identity>
+    </column>
+    <column id="260" parent="38" name="empSysPass">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="261" parent="38" name="empSysName">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="262" parent="38" name="empSysSex">
+      <data-type>varchar(2)|0</data-type>
+    </column>
+    <column id="263" parent="38" name="empSysBirthDate">
+      <data-type>varchar(29)|0</data-type>
+    </column>
+    <column id="264" parent="38" name="empSysGegree">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <column id="265" parent="38" name="empSysState">
+      <data-type>varchar(20)|0</data-type>
+    </column>
+    <key id="266" parent="38" name="PRIMARY">
+      <columns>empSysNo</columns>
+      <primary>1</primary>
+    </key>
+  </database-model>
+</dataSource>
