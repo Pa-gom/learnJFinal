@@ -56,14 +56,14 @@
             <br/>
             <h3>当前位置：<a href="/">首页</a>  > <a href='/html/jzbg/1.html' >${currentColumnName}</a> </h3>
             <div class="detail_content_info">
-                <h1>${recruit.empRecruitTitle}</h1>
-                <i><author>${recruit.empRecruitPublisher}</author></i>
-                <i><time>${recruit.empRecruitPublishDateTime}</time></i>
+                <h1>${jobfair.empJobFairTitle}</h1>
+                <i><author>${jobfair.empJobFairPublisher}</author></i>
+                <i><time>${jobfair.empJobFairPublishDateTime}</time></i>
             </div>
             <div style="width:100%;margin:10px; line-height: 28px; font-size: 16px;">
 
 
-                ${recruit.empRecruitContent}
+                ${jobfair.empJobFairContent}
 
 
             </div>

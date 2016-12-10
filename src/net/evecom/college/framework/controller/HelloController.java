@@ -13,10 +13,7 @@ public class HelloController extends Controller{
      * 初始化首页的数据
      */
     public void index(){
-        System.out.print(EmpRecruitInfo.dao.getEmpRecruitInfoList(getParaToInt(0,1),10).getList().size()+"#####");
-        setAttr("schoolList", EmpRecruitInfo.dao.getEmpRecruitInfoList(getParaToInt(0,1),10));
-        renderFreeMarker("/index.jsp");
-        //this.renderText("Welcome to the World of JFinal!");
+
     }
 
 

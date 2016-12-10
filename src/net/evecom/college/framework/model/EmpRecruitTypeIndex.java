@@ -14,6 +14,12 @@ import javax.persistence.Table;
 public class EmpRecruitTypeIndex extends Model<EmpRecruitTypeIndex> {
     public static final EmpRecruitTypeIndex dao = new EmpRecruitTypeIndex();
 
+
+    /**
+     * 根据类型id获取类型名称
+     * @param id
+     * @return
+     */
     public String getEmpRecruitTypeName(String id){
         return dao.findById(id).getStr("empRecruitTypeName");
     }

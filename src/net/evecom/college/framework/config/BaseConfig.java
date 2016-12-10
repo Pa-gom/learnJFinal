@@ -7,10 +7,7 @@ import com.jfinal.plugin.c3p0.C3p0Plugin;
 import com.jfinal.render.ViewType;
 import net.evecom.college.framework.controller.HelloController;
 import net.evecom.college.framework.controller.IndexController;
-import net.evecom.college.framework.model.EmpCollegeIndex;
-import net.evecom.college.framework.model.EmpRecruitInfo;
-import net.evecom.college.framework.model.EmpRecruitTypeIndex;
-import net.evecom.college.framework.model.User;
+import net.evecom.college.framework.model.*;
 import net.evecom.college.framework.routes.AdminRoutes;
 import net.evecom.college.framework.routes.FrontRoutes;
 
@@ -21,6 +18,7 @@ public class BaseConfig extends JFinalConfig{
     @Override
     public void configConstant(Constants me) {
         me.setDevMode(true);
+        me.setEncoding("utf-8");
         me.setViewType(ViewType.JSP);
         //me.setViewType(ViewType.JSP);
     }
@@ -41,6 +39,9 @@ public class BaseConfig extends JFinalConfig{
         arp.addMapping("emp_college_index","empCollegeNo", User.class);
         arp.addMapping("emp_recruit_info", "empRecruitNo", EmpRecruitInfo.class);
         arp.addMapping("emp_recruit_type_index","empRecruitTypeNo", EmpRecruitTypeIndex.class);
+        arp.addMapping("emp_jobfair_info","empJobFairNo", EmpJobfairInfo.class);
+        arp.addMapping("emp_jobfair_type_index","empJobFairTypeNo", EmpJobfairTypeIndex.class);
+        arp.addMapping("emp_students_info",EmpStudentsInfo.class);
     }
 
     @Override

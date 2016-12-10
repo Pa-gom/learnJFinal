@@ -19,10 +19,11 @@ public class EmpRecruitInfo extends Model<EmpRecruitInfo> {
      * 获取招聘信息列表
      * @param pageNum
      * @param pageSize
+     * @param typeId
      * @return
      */
-    public Page<EmpRecruitInfo> getEmpRecruitInfoList(int pageNum, int pageSize){
-        return paginate(pageNum,pageSize,"select *","from emp_recruit_info where empRecruitType = 1 and empRecruitState = 1 order by empRecruitNo desc");
+    public Page<EmpRecruitInfo> getEmpRecruitInfoList(int pageNum, int pageSize,int typeId){
+        return paginate(pageNum,pageSize,"select *","from emp_recruit_info where empRecruitType = "+typeId+" and empRecruitState = 1 order by empRecruitNo desc");
     }
 
     /**

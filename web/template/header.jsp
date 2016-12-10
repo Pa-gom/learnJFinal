@@ -70,20 +70,20 @@
             <div id="nav">
                 <table cellspacing="0">
                     <tr>
-                        <td><a target="_blank" href="http://news.fzu.edu.cn">首页</a></td>
+                        <td><a href="/">首页</a></td>
                         <td><a target="_self" href="./html/yxsz/1.html">招聘服务<i class="fa">&#xf107;</i></a>
                             <ul>
-                                <li><a href="">校园招聘</a></li>
-                                <li><a href="">网络招聘</a></li>
-                                <li><a href="">实习招聘</a></li>
-                                <li><a href="">大型招聘会</a></li>
+                                <li><a href="/list/17-1">校园招聘</a></li>
+                                <li><a href="/list/81-1">网络招聘</a></li>
+                                <li><a href="/list/66-1">实习招聘</a></li>
+                                <li><a href="/jobfairList/">大型招聘会</a></li>
                             </ul>
                         </td>
                         <td><a target="_self" href="./html/xxgk/1.html">生源信息<i class="fa">&#xf107;</i></a>
                             <ul>
-                                <li><a target="_self" href="./html/xxgk/xxjj/1.html">本科生生源信息</a></li>
-                                <li><a target="_self" href="./html/xxgk/xrld/1.html">硕士生生源信息</a></li>
-                                <li><a target="_self" href="./html/xxgk/ysfc/1.html">博士生生源信息</a></li>
+                                <li><a target="_self" href="/studentsInfo/1">本科生生源信息</a></li>
+                                <li><a target="_self" href="/studentsInfo/2">硕士生生源信息</a></li>
+                                <li><a target="_self" href="/studentsInfo/3">博士生生源信息</a></li>
                             </ul>
                         </td>
                         <td><a href="">政策法规<i class="fa">&#xf107;</i></a>
