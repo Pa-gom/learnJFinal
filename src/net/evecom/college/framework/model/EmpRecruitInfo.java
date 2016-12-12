@@ -27,6 +27,14 @@ public class EmpRecruitInfo extends Model<EmpRecruitInfo> {
     }
 
     /**
+     * 返回招聘信息条数
+     * @return
+     */
+    public int getEmpRecruitInfoCount(int typeId) {
+        return dao.find("select * from emp_recruit_info where empRecruitType = " + typeId + " and empRecruitState = 1").size();
+    }
+
+    /**
      * 获取单条招聘信息
      * @param id
      * @return

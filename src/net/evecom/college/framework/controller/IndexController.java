@@ -57,8 +57,27 @@ public class IndexController extends Controller{
     public void list(){
         String id = getPara(0);
         int typeId = getParaToInt(1);
-        setAttr("infoList",EmpRecruitInfo.dao.getEmpRecruitInfoList(1,10,typeId));
+        int currentPage = 1;
+        //总页数
+        int pageCount = 1;
+        if (getPara(2) != null) {
+            currentPage = getParaToInt(2);
+        }
+        //招聘信息条数
+        int infoCount = EmpRecruitInfo.dao.getEmpRecruitInfoCount(typeId);
+        if (infoCount == 0) {
+            pageCount = 0;
+        } else if (infoCount % 10 == 0) {
+            pageCount = infoCount / 10;
+        } else {
+            pageCount = infoCount / 10 + 1;
+        }
+        setAttr("infoList", EmpRecruitInfo.dao.getEmpRecruitInfoList(currentPage, 10, typeId));
         setAttr("currentColumnName", EmpRecruitInfo.dao.getCurrentColumnName(id));
+        setAttr("infoId", id);
+        setAttr("typeId", typeId);
+        setAttr("currentPage", currentPage);
+        setAttr("pageCount", pageCount);
         renderFreeMarker("/list.jsp");
     }
 
@@ -66,8 +85,26 @@ public class IndexController extends Controller{
      * 显示大型招聘会列表
      */
     public void jobfairList(){
-        setAttr("infoList",EmpJobfairInfo.dao.getAllEmpJodFairInfoList(1,10));
+
+        int currentPage = 1;
+        //总页数
+        int pageCount = 1;
+        if (getPara(0) != null) {
+            currentPage = getParaToInt(0);
+        }
+        //信息条数
+        int infoCount = EmpJobfairInfo.dao.getEmpJobfairInfoCount();
+        if (infoCount == 0) {
+            pageCount = 0;
+        } else if (infoCount % 10 == 0) {
+            pageCount = infoCount / 10;
+        } else {
+            pageCount = infoCount / 10 + 1;
+        }
+        setAttr("infoList", EmpJobfairInfo.dao.getAllEmpJodFairInfoList(currentPage, 10));
         setAttr("currentColumnName", "大型招聘会");
+        setAttr("currentPage", currentPage);
+        setAttr("pageCount", pageCount);
         renderFreeMarker("/jobfairList.jsp");
     }
 
@@ -77,19 +114,47 @@ public class IndexController extends Controller{
     public void studentsInfo(){
         String typeId = getPara(0);
         String typeName;
+        int currentPage = 1;
+        //总页数
+        int pageCount = 1;
+        if (getPara(1) != null) {
+            currentPage = getParaToInt(1);
+        }
+        //信息条数
+        int infoCount = EmpStudentsInfo.dao.getStudentInfoCount(typeId);
+        if (infoCount == 0) {
+            pageCount = 0;
+        } else if (infoCount % 10 == 0) {
+            pageCount = infoCount / 10;
+        } else {
+            pageCount = infoCount / 10 + 1;
+        }
+
         switch (typeId){
+            case "1":
+                typeName = "本科生生源信息";
+                break;
             case "2":
                 typeName = "硕士生生源信息";
                 break;
             case "3":
-                typeName ="博士生生源信息";
+                typeName = "博士生生源信息";
+                break;
+            case "4":
+                typeName = "国家政策";
+                break;
+            case "5":
+                typeName = "学校政策";
                 break;
             default:
                 typeName = "本科生生源信息";
                 break;
         }
-        setAttr("studentsInfoList", EmpStudentsInfo.dao.getStudentsInfoList(1,10,typeId));
+        setAttr("studentsInfoList", EmpStudentsInfo.dao.getStudentsInfoList(currentPage, 10, typeId));
         setAttr("currentColumnName", typeName);
+        setAttr("typeId", typeId);
+        setAttr("currentPage", currentPage);
+        setAttr("pageCount", pageCount);
         renderFreeMarker("/studentsInfoList.jsp");
     }
 
@@ -101,11 +166,20 @@ public class IndexController extends Controller{
         EmpStudentsInfo info = EmpStudentsInfo.dao.getStudentsInfo(id);
         String typeName;
         switch (info.getStr("empType")){
+            case "1":
+                typeName = "本科生生源信息";
+                break;
             case "2":
                 typeName = "硕士生生源信息";
                 break;
             case "3":
-                typeName ="博士生生源信息";
+                typeName = "博士生生源信息";
+                break;
+            case "4":
+                typeName = "国家政策";
+                break;
+            case "5":
+                typeName = "学校政策";
                 break;
             default:
                 typeName = "本科生生源信息";

@@ -44,4 +44,13 @@ public class EmpJobfairInfo extends Model<EmpJobfairInfo>{
         String typeId = getEmpJobFairInfo(id).getStr("empJobFairType");
         return EmpRecruitTypeIndex.dao.getEmpRecruitTypeName(typeId);
     }
+
+    /**
+     * 返回信息条数
+     *
+     * @return
+     */
+    public int getEmpJobfairInfoCount() {
+        return dao.find("select * from emp_jobfair_info where empJobFairState = 1").size();
+    }
 }

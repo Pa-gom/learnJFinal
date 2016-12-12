@@ -88,8 +88,8 @@
                         </td>
                         <td><a href="">政策法规<i class="fa">&#xf107;</i></a>
                             <ul>
-                                <li><a href="">国家政策</a></li>
-                                <li><a href="">学校政策</a></li>
+                                <li><a href="/studentsInfo/4">国家政策</a></li>
+                                <li><a href="/studentsInfo/5">学校政策</a></li>
                             </ul>
                         </td>
                         <td><a href="">下载专区</a></td>

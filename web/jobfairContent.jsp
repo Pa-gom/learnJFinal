@@ -48,13 +48,14 @@
             <div class="leftNav">
                 <h3 id="submenu"><a class="fa fa-bars menuicon"></a>${currentColumnName}</h3>
                 <ul class="yahei">
-                    <li class="current"><i class="fa fa-plus"></i><a target="" href='/html/jzbg/1.html'>${currentColumnName}</a></li>
+                    <li class="current"><i class="fa fa-plus"></i><a target=""
+                                                                     href='/jobfairList/1'>${currentColumnName}</a></li>
                 </ul>
             </div>
             <!-- End Sidebar -->			</div>
         <div id="rside2">
             <br/>
-            <h3>当前位置：<a href="/">首页</a>  > <a href='/html/jzbg/1.html' >${currentColumnName}</a> </h3>
+            <h3>当前位置：<a href="/">首页</a> > <a href='/jobfairList/1'>${currentColumnName}</a></h3>
             <div class="detail_content_info">
                 <h1>${jobfair.empJobFairTitle}</h1>
                 <i><author>${jobfair.empJobFairPublisher}</author></i>
@@ -72,7 +73,7 @@
                 <li><b>下一篇：</b><a href="/html/jzbg/2016/12/06/bf133767-1666-4498-846d-12d39f0a87ad.html">图书馆信息资源讲座第180讲：轻享图书馆资源，完成毕业论文撰写</a></li></ul>
         </div>
     </div>
- <%@ include file="template/footer.jsp"%>
+<#include "template/footer.jsp" />
 </body>
 </html>
 

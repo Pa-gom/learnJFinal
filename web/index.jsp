@@ -237,7 +237,7 @@
     </dl>
 
 
-    <span class="more" style="margin-top:18px"><a target="_blank" href="/jobfairList">&gt;&gt;更多</a></span>
+    <span class="more" style="margin-top:18px"><a target="_blank" href="/jobfairList/1">&gt;&gt;更多</a></span>
     <h3 class="hotNewstitle" >大型招聘会</h3>
     <div class="hotNews hotNews-2-3">
         <h3><a target="_blank" href="/jobfairDetail/${firstJobFair.empJobFairNo}">${firstJobFair.empJobFairTitle}</a></h3>

@@ -93,29 +93,48 @@ To change this template use File | Settings | File Templates.
             function changeUrl() {
                 var url = $("#goToUrl").attr("href");
                 var num = $("#pageNum").val();
-                url = url.replace("1.html", num + ".html");
+                var r = /^[0-9]*[1-9][0-9]*$/;
+                if (!r.test(num) || num > ${pageCount}) {
+                    alert("请输入正确的页码");
+                    $("#pageNum").val("");
+                    return false;
+                }
+                url = url.replace("/studentsInfo/${typeId}-1", "/studentsInfo/${typeId}-" + num);
                 $("#goToUrl").attr("href", url);
             }
         </script>
         <div class="ecms_pag">
             <div class="ecms_pagination">
                 <ul>
-                    <a class="ecms_disablepage" href="/html/fdxx/1.html"><</a>
-                    <li class="ecms_currentpage">1</li>
-                    <li><a class="ecms_pagenav" href="/html/fdxx/2.html"><strong>2</strong></a></li>
-                    <li><a class="ecms_pagenav" href="/html/fdxx/3.html"><strong>3</strong></a></li>
-                    <li><a class="ecms_pagenav" href="/html/fdxx/4.html"><strong>4</strong></a></li>
-                    <li><a class="ecms_pagenav" href="/html/fdxx/5.html"><strong>5</strong></a></li>
-                    <li><a class="ecms_pagenav" href="/html/fdxx/6.html"><strong>6</strong></a></li>
-                    <li><a class="ecms_pagenav" href="/html/fdxx/7.html"><strong>7</strong></a></li>
+                    <#if currentPage gt 1>
+                        <a class="ecms_disablepage" href="/studentsInfo/${typeId}-${currentPage-1}"><</a>
+                    </#if>
+                    <#list (currentPage-5)..(currentPage-1) as s>
+                        <#if s gt 0>
+                            <li><a class="ecms_pagenav" href="/studentsInfo/${typeId}-${s}">${s}</a></li>
+                        </#if>
+                    </#list>
+                    <li class="ecms_currentpage">${currentPage}</li>
+                    <#list (currentPage+1)..(currentPage+5) as s>
+                        <#if s lte pageCount>
+                            <li><a class="ecms_pagenav" href="/studentsInfo/${typeId}-${s}">${s}</a></li>
+                        </#if>
+                    </#list>
                     ...
-                    <li><a href="/html/fdxx/239.html">239</a></li>
-                    <li><a href="/html/fdxx/240.html">240</a></li>
-                    <li class="nextpage"><a href="/html/fdxx/2.html"> ></a></li>
+                    <#list (pageCount-1)..(pageCount) as s>
+                        <#if s gt (currentPage+5)>
+                            <li><a class="ecms_pagenav" href="/studentsInfo/${typeId}-${s}">${s}</a></li>
+                        </#if>
+                    </#list>
+
+                    <#if currentPage lt pageCount>
+                        <li class="nextpage"><a href="/studentsInfo/${typeId}-${currentPage+1}">></a></li>
+                    </#if>
                 </ul>
             </div>
             <div class="ecms_go">
-                跳转：<input type="text" class="ecms_jump_input" id="pageNum" onchange="changeUrl()"/> 页 <a style="cursor:hand" class="list_p6" id="goToUrl" href="/html/fdxx/1.html">GO</a>
+                跳转：<input type="text" class="ecms_jump_input" id="pageNum" onchange="changeUrl()"/> 页 <a
+                    style="cursor:hand" class="list_p6" id="goToUrl" href="/studentsInfo/${typeId}-1">GO</a>
             </div>
             <div style="clear:both"></div>
         </div>

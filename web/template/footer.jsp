@@ -13,7 +13,8 @@
             <h3>常用链接</h3>
             <ul
             ><li><a target="_blank" href="http://59.77.226.89/Jmail/">校领导信箱</a></li
-            ><li><a target="_blank" href="./html/xndh">校内电话</a></li
+            >
+                <li><a target="_blank" href="/html/xndh">校内电话</a></li
             ><li><a target="_blank" href="http://xwgk.fzu.edu.cn/html/xwgz/zbcg/">招标采购</a></li
             ><li><a target="_blank" href="http://xxb.fzu.edu.cn">信息化建设办公室</a></li
             ><li><a target="_blank" href="http://fzdxb.cuepa.cn/">福州大学报</a></li
@@ -24,10 +25,20 @@
             ></ul>
         </div>
         <ul id="topiclinks"
-        ><li class="pic"><a href="http://news.fzu.edu.cn/html/ztxw/lxyz/1.html" target="_blank" ><img src="./attach/2016/05/06/220432.jpg"></a></li
-        ><li class="pic"><a href="http://i.fzu.edu.cn" target="_blank" ><img src="./attach/download/2015/05/10/119512.jpg"></a></li
-        ><li class="sub"><a href="http://weibo.com/fzuniversity" target="_blank"><img src="./themes/30480/fzu_new/images/weibo.png"></a><img src="./themes/30480/fzu_new/images/weixin.png"></li
-        ><li class="sub"><a href="http://map.fzu.edu.cn/" target="_blank"><img src="./themes/30480/fzu_new/images/maps.png"></a><a href="http://m.fzu.edu.cn" target="_blank"><img src="./themes/30480/fzu_new/images/mobile.png"></a></li
+        >
+            <li class="pic"><a href="http://news.fzu.edu.cn/html/ztxw/lxyz/1.html" target="_blank"><img
+                    src="/attach/2016/05/06/220432.jpg"></a></li
+            >
+            <li class="pic"><a href="http://i.fzu.edu.cn" target="_blank"><img
+                    src="/attach/download/2015/05/10/119512.jpg"></a></li
+            >
+            <li class="sub"><a href="http://weibo.com/fzuniversity" target="_blank"><img
+                    src="/themes/30480/fzu_new/images/weibo.png"></a><img src="/themes/30480/fzu_new/images/weixin.png">
+            </li
+            >
+            <li class="sub"><a href="http://map.fzu.edu.cn/" target="_blank"><img
+                    src="/themes/30480/fzu_new/images/maps.png"></a><a href="http://m.fzu.edu.cn" target="_blank"><img
+                    src="/themes/30480/fzu_new/images/mobile.png"></a></li
         ></ul>
     </div>
 </div>

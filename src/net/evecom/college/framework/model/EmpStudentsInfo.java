@@ -18,4 +18,14 @@ public class EmpStudentsInfo extends Model<EmpStudentsInfo> {
     public EmpStudentsInfo getStudentsInfo(String id){
         return dao.findById(id);
     }
+
+
+    /**
+     * 返回信息条数
+     *
+     * @return
+     */
+    public int getStudentInfoCount(String typeId) {
+        return dao.find("select * from emp_students_info where empType = '" + typeId + "'").size();
+    }
 }
