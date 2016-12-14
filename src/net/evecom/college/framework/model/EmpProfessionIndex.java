@@ -1,57 +1,27 @@
 package net.evecom.college.framework.model;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import com.jfinal.plugin.activerecord.Model;
+
+import java.util.List;
 
 /**
  * Created by Ezreal on 2016/12/7.
  */
-@Entity
-@Table(name = "emp_profession_index", schema = "fzujob", catalog = "")
-public class EmpProfessionIndex {
-    private int empProfessionNo;
-    private String empProfessionName;
 
-    @Basic
-    @Column(name = "empProfessionNo")
-    public int getEmpProfessionNo() {
-        return empProfessionNo;
+public class EmpProfessionIndex extends Model<EmpProfessionIndex> {
+    public static final EmpProfessionIndex dao = new EmpProfessionIndex();
+
+    /**
+     * 获取学院列表
+     */
+    public List<EmpProfessionIndex> getCollegeList() {
+        return dao.find("select  distinct empCollegeName from emp_profession_index");
     }
 
-    public void setEmpProfessionNo(int empProfessionNo) {
-        this.empProfessionNo = empProfessionNo;
-    }
-
-    @Basic
-    @Column(name = "empProfessionName")
-    public String getEmpProfessionName() {
-        return empProfessionName;
-    }
-
-    public void setEmpProfessionName(String empProfessionName) {
-        this.empProfessionName = empProfessionName;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        EmpProfessionIndex that = (EmpProfessionIndex) o;
-
-        if (empProfessionNo != that.empProfessionNo) return false;
-        if (empProfessionName != null ? !empProfessionName.equals(that.empProfessionName) : that.empProfessionName != null)
-            return false;
-
-        return true;
-    }
-
-    @Override
-    public int hashCode() {
-        int result = empProfessionNo;
-        result = 31 * result + (empProfessionName != null ? empProfessionName.hashCode() : 0);
-        return result;
+    /**
+     * 根据学院名称获取专业列表
+     */
+    public List<EmpProfessionIndex> getProfessionListByCollegeName(String college) {
+        return dao.find("select * from emp_profession_index where empCollegeName ='" + college + "'");
     }
 }

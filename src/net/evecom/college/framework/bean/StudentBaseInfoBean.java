@@ -48,6 +48,19 @@ public class StudentBaseInfoBean {
      */
     private String stuDevelopLevel;
 
+    public StudentBaseInfoBean() {
+
+    }
+
+    public StudentBaseInfoBean(String stuNo, String stuName, String stuSex, String stuGrade, String stuCollege, String stuProfession, String stuDevelopLevel) {
+        this.stuNo = stuNo;
+        this.stuName = stuName;
+        this.stuSex = stuSex;
+        this.stuGrade = stuGrade;
+        this.stuCollege = stuCollege;
+        this.stuProfession = stuProfession;
+        this.stuDevelopLevel = stuDevelopLevel;
+    }
 
     public String getStuNo() {
         return stuNo;

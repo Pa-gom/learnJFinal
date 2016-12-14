@@ -24,28 +24,36 @@ public class EmpStudentBaseInfo extends Model<EmpStudentBaseInfo> {
      * @return
      */
     public Page<EmpStudentBaseInfo> getStudentList(int pageNum, int pageSize, StudentBaseInfoBean condition) {
-        String sql = "from emp_student_base_info where 1=1";//避免后续判断何时加入where
-        if (condition.getStuNo() != null) {
-            sql += "and empStudentNo = '" + condition.getStuNo() + "'";
-        } else if (condition.getStuName() != null) {
-            sql += "and empStudentName = '" + condition.getStuName() + "'";
-        } else if (condition.getStuSex() != null) {
-            sql += "and empStudentSex = '" + condition.getStuSex() + "'";
-        } else if (condition.getStuMinority() != null) {
-            sql += "and empStudentMinority = '" + condition.getStuMinority() + "'";
-        } else if (condition.getStuLocation() != null) {
-            sql += "and empStudentLocation = '" + condition.getStuLocation() + "'";
-        } else if (condition.getStuGrade() != null) {
-            sql += "and empStudentGrade = '" + condition.getStuGrade() + "'";
-        } else if (condition.getStuCollege() != null) {
-            sql += "and empStudentCollege = '" + condition.getStuCollege() + "'";
-        } else if (condition.getStuProfession() != null) {
-            sql += "and empStudentProfession = '" + condition.getStuProfession() + "'";
-        } else if (condition.getStuDevelopLevel() != null) {
-            sql += "and empStudentDevelopLevel = '" + condition.getStuDevelopLevel() + "'";
+        String sql = "from emp_student_base_info where 1=1 ";//避免后续判断何时加入where
+        if (condition.getStuNo() != null && !condition.getStuNo().isEmpty()) {
+            sql += " and empStudentNo like '%" + condition.getStuNo() + "%'";
         }
-
-        return paginate(pageNum, pageSize, "select *",sql);
+        if (condition.getStuName() != null && !condition.getStuName().isEmpty()) {
+            sql += " and empStudentName like '%" + condition.getStuName() + "%'";
+        }
+        if (condition.getStuSex() != null && !condition.getStuSex().isEmpty()) {
+            sql += " and empStudentSex like '%" + condition.getStuSex() + "%'";
+        }
+        if (condition.getStuMinority() != null && !condition.getStuMinority().isEmpty()) {
+            sql += " and empStudentMinority like '%" + condition.getStuMinority() + "%'";
+        }
+        if (condition.getStuLocation() != null && !condition.getStuLocation().isEmpty()) {
+            sql += " and empStudentLocation like '%" + condition.getStuLocation() + "%'";
+        }
+        if (condition.getStuGrade() != null && !condition.getStuGrade().isEmpty()) {
+            sql += " and empStudentGrade like '%" + condition.getStuGrade() + "%'";
+        }
+        if (condition.getStuCollege() != null && !condition.getStuCollege().isEmpty()) {
+            sql += " and empStudentCollege like '%" + condition.getStuCollege() + "%'";
+        }
+        if (condition.getStuProfession() != null && !condition.getStuProfession().isEmpty()) {
+            sql += " and empStudentProfession like '%" + condition.getStuProfession() + "%'";
+        }
+        if (condition.getStuDevelopLevel() != null && !condition.getStuDevelopLevel().isEmpty()) {
+            sql += " and empStudentDevelopLevel like '%" + condition.getStuDevelopLevel() + "%'";
+        }
+        System.out.print(sql);
+        return paginate(pageNum, pageSize, "select * ", sql);
     }
 
     /**
@@ -55,25 +63,33 @@ public class EmpStudentBaseInfo extends Model<EmpStudentBaseInfo> {
      * @return
      */
     public int getStudentCount(StudentBaseInfoBean condition) {
-        String sql = "select * from emp_student_base_info where 1=1";//避免后续判断何时加入where
-        if (condition.getStuNo() != null) {
-            sql += "and empStudentNo = '" + condition.getStuNo() + "'";
-        } else if (condition.getStuName() != null) {
-            sql += "and empStudentName = '" + condition.getStuName() + "'";
-        } else if (condition.getStuSex() != null) {
-            sql += "and empStudentSex = '" + condition.getStuSex() + "'";
-        } else if (condition.getStuMinority() != null) {
-            sql += "and empStudentMinority = '" + condition.getStuMinority() + "'";
-        } else if (condition.getStuLocation() != null) {
-            sql += "and empStudentLocation = '" + condition.getStuLocation() + "'";
-        } else if (condition.getStuGrade() != null) {
-            sql += "and empStudentGrade = '" + condition.getStuGrade() + "'";
-        } else if (condition.getStuCollege() != null) {
-            sql += "and empStudentCollege = '" + condition.getStuCollege() + "'";
-        } else if (condition.getStuProfession() != null) {
-            sql += "and empStudentProfession = '" + condition.getStuProfession() + "'";
-        } else if (condition.getStuDevelopLevel() != null) {
-            sql += "and empStudentDevelopLevel = '" + condition.getStuDevelopLevel() + "'";
+        String sql = "select * from emp_student_base_info where 1=1 ";//避免后续判断何时加入where
+        if (condition.getStuNo() != null && !condition.getStuNo().isEmpty()) {
+            sql += " and empStudentNo like '%" + condition.getStuNo() + "%'";
+        }
+        if (condition.getStuName() != null && !condition.getStuName().isEmpty()) {
+            sql += " and empStudentName like '%" + condition.getStuName() + "%'";
+        }
+        if (condition.getStuSex() != null && !condition.getStuSex().isEmpty()) {
+            sql += " and empStudentSex like '%" + condition.getStuSex() + "%'";
+        }
+        if (condition.getStuMinority() != null && !condition.getStuMinority().isEmpty()) {
+            sql += " and empStudentMinority like '%" + condition.getStuMinority() + "%'";
+        }
+        if (condition.getStuLocation() != null && !condition.getStuLocation().isEmpty()) {
+            sql += " and empStudentLocation like '%" + condition.getStuLocation() + "%'";
+        }
+        if (condition.getStuGrade() != null && !condition.getStuGrade().isEmpty()) {
+            sql += " and empStudentGrade like '%" + condition.getStuGrade() + "%'";
+        }
+        if (condition.getStuCollege() != null && !condition.getStuCollege().isEmpty()) {
+            sql += " and empStudentCollege like '%" + condition.getStuCollege() + "%'";
+        }
+        if (condition.getStuProfession() != null && !condition.getStuProfession().isEmpty()) {
+            sql += " and empStudentProfession like '%" + condition.getStuProfession() + "%'";
+        }
+        if (condition.getStuDevelopLevel() != null && !condition.getStuDevelopLevel().isEmpty()) {
+            sql += " and empStudentDevelopLevel like '%" + condition.getStuDevelopLevel() + "%'";
         }
 
         return dao.find(sql).size();

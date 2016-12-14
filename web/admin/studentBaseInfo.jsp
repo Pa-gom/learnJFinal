@@ -1,33 +1,46 @@
 <div class="pageHeader">
-    <form onsubmit="return navTabSearch(this);" action="demo_page1.html" method="post">
+    <form>
         <div class="searchBar">
             <table class="searchContent">
                 <tr>
-                    <td>
-                        我的客户：<input type="text" name="keyword"/>
+                    <td>学院：
+                        <select class="collegeBox" id="college" onchange="showProfessionList()">
+                            <option value="">请选择学院</option>
+                            <#list collegeList as x>
+                                <option value="${x.empCollegeName}">${x.empCollegeName}</option>
+                            </#list>
+                        </select>
                     </td>
-                    <td>
-                        <select class="combox" name="">
-                            <option value="">学院</option>
-                            <option value="北京">北京</option>
-                            <option value="上海">上海</option>
-                            <option value="天津">天津</option>
-                            <option value="重庆">重庆</option>
-                            <option value="广东">广东</option>
+                    <td>专业：
+                        <select class="professionBox" id="profession">
+                            <option value="">请选择专业</option>
                         </select>
                     </td>
                     <td>
-                        <select class="combox" name="">
-                            <option value="">专业</option>
-                            <option value="北京">北京</option>
-                            <option value="上海">上海</option>
-                            <option value="天津">天津</option>
-                            <option value="重庆">重庆</option>
-                            <option value="广东">广东</option>
+                        年级：<input type="text" id="grade"/>
+                    </td>
+                    <td>
+                        学号：<input type="text" id="stuNum"/>
+                    </td>
+                    <td>
+                        性别：
+                        <select class="" id="sex">
+                            <option value="">不限</option>
+                            <option value="男">男</option>
+                            <option value="女">女</option>
                         </select>
                     </td>
                     <td>
-                        建档日期：<input type="text" class="date" readonly="true"/>
+                        姓名：<input type="text" id="stuName"/>
+                    </td>
+                    <td>
+                        培养层次：
+                        <select class="" id="level">
+                            <option value="">不限</option>
+                            <option value="本科">本科</option>
+                            <option value="硕士">硕士</option>
+                            <option value="博士">博士</option>
+                        </select>
                     </td>
                 </tr>
             </table>
@@ -36,12 +49,10 @@
                     <li>
                         <div class="buttonActive">
                             <div class="buttonContent">
-                                <button type="submit">检索</button>
+                                <button type="button" onclick="query()">检索</button>
                             </div>
                         </div>
                     </li>
-                    <li><a class="button" href="demo_page6.html" target="dialog" mask="true"
-                           title="查询框"><span>高级检索</span></a></li>
                 </ul>
             </div>
         </div>
@@ -65,22 +76,22 @@
             <th width="120" align="center">学院</th>
             <th width="120" align="center">专业</th>
             <th width="120" align="center">学号</th>
-            <th width="100" align="center">姓名</th>
-            <th width="100" align="center">性别</th>
-            <th width="80" align="center">民族</th>
+            <th width="120" align="center">姓名</th>
+            <th width="120" align="center">性别</th>
+            <th width="120" align="center">民族</th>
             <th width="120" align="center">籍贯</th>
-            <th width="150" align="center">身份证号</th>
+            <th width="120" align="center">身份证号</th>
             <th width="120" align="center">政治面貌</th>
-            <th width="100" align="center">入学年月</th>
+            <th width="120" align="center">入学年月</th>
             <th width="120" align="center">生源地</th>
             <th width="120" align="center">电话</th>
-            <th width="200" align="center">联系地址</th>
-            <th width="100" align="center">入学方式</th>
+            <th width="120" align="center">联系地址</th>
+            <th width="120" align="center">入学方式</th>
         </tr>
         </thead>
-        <tbody>
+        <tbody id="stuTable">
         <#list studentList.getList() as x>
-            <tr>
+            <tr id="columnHead">
                 <td>${x.empStudentCollege}</td>
                 <td>${x.empStudentProfession}</td>
                 <td>${x.empStudentNo}</td>
@@ -161,6 +172,9 @@
     </div>
 </div>
 <script>
+    /**
+     * 跳转到指定页面
+     */
     function jumpToPage() {
         var url = $("#goToUrl").attr("href");
         var num = $("#pageNum").val();
@@ -174,4 +188,108 @@
         $("#goToUrl").attr("href", url);
     }
 
+    /**
+     * 根据学院查询并显示专业列表
+     */
+    function showProfessionList() {
+        var college = $(".collegeBox option:selected").val();
+        $.ajax({
+            type: "POST",
+            url: "/student/professionJson",
+            data: {"college": college},
+            dataType: "json",
+            success: function (data) {
+                var dataList = data.professionList;
+                $(".professionBox option:gt(0)").remove();
+                $(dataList).each(function (i, val) {
+                    $(".professionBox").append('<option value="' + val.empProfessionName + '">' + val.empProfessionName + '</option>');
+                });
+
+                console.info(data);
+            },
+            error: function (textStatus) {
+                alert("error");
+                console.info(msg);
+            }
+        });
+    }
+
+    /**
+     * 根据条件查询并返回结果
+     *
+     * 由于框架的原因，刷新表格必须至少保留原来一行的框，否则左右拉伸会无效
+     * 解决方法：将保留的那行数据换成新数据的第一行，后续的继续输出，加入空数据判断
+     */
+    function query() {
+        var college = $('#college').val();
+        var profession = $('#profession').val();
+        var grade = $('#grade').val();
+        var stuNum = $('#stuNum').val();
+        var sex = $('#sex').val();
+        var stuName = $('#stuName').val();
+        var level = $('#level').val();
+        var r = /^[0-9]*[1-9][0-9]*$/;
+        if (grade != "") {
+            if (!r.test(grade) || grade < 2000 || grade > 2100) {
+                alert("输入的年级不符合要求");
+                return false;
+            }
+        }
+        $.ajax({
+            type: "POST",
+            url: "/student/baseInfoListJson/1",
+            data: {
+                "college": college,
+                "profession": profession,
+                "grade": grade,
+                "stuNum": stuNum,
+                "sex": sex,
+                "stuName": stuName,
+                "level": level
+            },
+            dataType: "json",
+            success: function (data) {
+                $('#stuTable tr:gt(0)').remove();
+                var dataList = data.studentList;
+                if (!(dataList.length > 0)) {
+                    $('#stuTable tr:eq(0) td').text('暂无数据');
+                    return false;
+                }
+                var row1 = new Array(dataList[0].empStudentCollege, dataList[0].empStudentProfession, dataList[0].empStudentNo,
+                        dataList[0].empStudentName, dataList[0].empStudentSex, dataList[0].empStudentMinority, dataList[0].empStudentLocation,
+                        dataList[0].empStudentIdNo, dataList[0].empStudentPoliticalStatus, dataList[0].empStudentEntryStudyDate, dataList[0].empStudentStuLocation,
+                        dataList[0].empStudentTel, dataList[0].empStudentAddress, dataList[0].empStudentEntryStudyType);
+                $('#stuTable tr:eq(0)').css('overflow', 'hidden');
+                $('#stuTable tr:eq(0)').css('white-space', 'nowrap');
+                $('#stuTable tr:eq(0) td').each(function (i) {
+                    $(this).text(row1[i]);
+                });
+                $(dataList).each(function (i, val) {
+                    if (i > 0) {
+                        $('#stuTable').append('<tr style="text-align:center;overflow:hidden; white-space:nowrap;">' +
+                                '<td width="' + $('#columnHead td:eq(0)').width + 'px">' + val.empStudentCollege + '</td>' +
+                                '<td width="' + $('#columnHead td:eq(1)').width + 'px">' + val.empStudentProfession + '</td>' +
+                                '<td width="' + $('#columnHead td:eq(2)').width + 'px">' + val.empStudentNo + '</td>' +
+                                '<td width="' + $('#columnHead td:eq(3)').width + 'px">' + val.empStudentName + '</td>' +
+                                '<td width="' + $('#columnHead td:eq(4)').width + 'px">' + val.empStudentSex + '</td>' +
+                                '<td width="' + $('#columnHead td:eq(5)').width + 'px">' + val.empStudentMinority + '</td>' +
+                                '<td width="' + $('#columnHead td:eq(6)').width + 'px">' + val.empStudentLocation + '</td>' +
+                                '<td width="' + $('#columnHead td:eq(7)').width + 'px">' + val.empStudentIdNo + '</td>' +
+                                '<td width="' + $('#columnHead td:eq(8)').width + 'px">' + val.empStudentPoliticalStatus + '</td>' +
+                                '<td width="' + $('#columnHead td:eq(9)').width + 'px">' + val.empStudentEntryStudyDate + '</td>' +
+                                '<td width="' + $('#columnHead td:eq(10)').width + 'px">' + val.empStudentStuLocation + '</td>' +
+                                '<td width="' + $('#columnHead td:eq(11)').width + 'px">' + val.empStudentTel + '</td>' +
+                                '<td width="' + $('#columnHead td:eq(12)').width + 'px">' + val.empStudentAddress + '</td>' +
+                                '<td width="' + $('#columnHead td:eq(13)').width + 'px">' + val.empStudentEntryStudyType + '</td></tr>');
+                    }
+                });
+            },
+            error: function (textStatus) {
+                alert("error");
+                console.info(msg);
+            }
+        });
+
+
+    }
 </script>
