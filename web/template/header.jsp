@@ -92,7 +92,7 @@
                                 <li><a href="/studentsInfo/5">学校政策</a></li>
                             </ul>
                         </td>
-                        <td><a href="">下载专区</a></td>
+                        <td><a href="/downloadList/1">下载专区</a></td>
                         <td><a href="">中心介绍</a></td>
                         <td><a target="_self" href="./html/zjfd/1.html">走进校园<i class="fa">&#xf107;</i></a>
                             <ul>

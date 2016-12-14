@@ -1,9 +1,14 @@
 package net.evecom.college.framework.controller;
 
 import com.jfinal.core.Controller;
+import com.jfinal.plugin.activerecord.Page;
+import net.evecom.college.framework.bean.AttachBean;
+import net.evecom.college.framework.model.EmpDownloadInfo;
 import net.evecom.college.framework.model.EmpJobfairInfo;
 import net.evecom.college.framework.model.EmpRecruitInfo;
 import net.evecom.college.framework.model.EmpStudentsInfo;
+
+import java.util.ArrayList;
 
 /**
  * Created by Ezreal on 2016/11/25.
@@ -38,7 +43,7 @@ public class IndexController extends Controller{
         String id = getPara(0);
         setAttr("recruit",EmpRecruitInfo.dao.getEmpRecruitInfo(id));
         setAttr("currentColumnName", EmpRecruitInfo.dao.getCurrentColumnName(id));
-        renderFreeMarker("/content.jsp");
+        renderFreeMarker("/front/content.jsp");
     }
 
     /**
@@ -48,7 +53,7 @@ public class IndexController extends Controller{
         String id = getPara(0);
         setAttr("jobfair",EmpJobfairInfo.dao.getEmpJobFairInfo(id));
         setAttr("currentColumnName", "大型招聘会");
-        renderFreeMarker("/jobfairContent.jsp");
+        renderFreeMarker("/front/jobfairContent.jsp");
     }
 
     /**
@@ -78,7 +83,7 @@ public class IndexController extends Controller{
         setAttr("typeId", typeId);
         setAttr("currentPage", currentPage);
         setAttr("pageCount", pageCount);
-        renderFreeMarker("/list.jsp");
+        renderFreeMarker("/front/list.jsp");
     }
 
     /**
@@ -105,7 +110,7 @@ public class IndexController extends Controller{
         setAttr("currentColumnName", "大型招聘会");
         setAttr("currentPage", currentPage);
         setAttr("pageCount", pageCount);
-        renderFreeMarker("/jobfairList.jsp");
+        renderFreeMarker("/front/jobfairList.jsp");
     }
 
     /**
@@ -155,7 +160,7 @@ public class IndexController extends Controller{
         setAttr("typeId", typeId);
         setAttr("currentPage", currentPage);
         setAttr("pageCount", pageCount);
-        renderFreeMarker("/studentsInfoList.jsp");
+        renderFreeMarker("/front/studentsInfoList.jsp");
     }
 
     /**
@@ -187,6 +192,51 @@ public class IndexController extends Controller{
         }
         setAttr("studentsInfo", info);
         setAttr("currentColumnName",typeName);
-        renderFreeMarker("/studentsInfoContent.jsp");
+        renderFreeMarker("/front/studentsInfoContent.jsp");
+    }
+
+    /**
+     * 下载专区列表界面
+     */
+    public void downloadList() {
+        int currentPage = 1;
+        //总页数
+        int pageCount = 1;
+        if (getPara(0) != null) {
+            currentPage = getParaToInt(0);
+        }
+        //信息条数
+        int infoCount = EmpDownloadInfo.dao.getDownloadInfoCount();
+        if (infoCount == 0) {
+            pageCount = 0;
+        } else if (infoCount % 10 == 0) {
+            pageCount = infoCount / 10;
+        } else {
+            pageCount = infoCount / 10 + 1;
+        }
+        setAttr("downloadList", EmpDownloadInfo.dao.getDownloadInfoList(currentPage, 10));
+        setAttr("currentColumnName", "下载专区");
+        setAttr("currentPage", currentPage);
+        setAttr("pageCount", pageCount);
+        renderFreeMarker("/front/downloadInfoList.jsp");
+    }
+
+    /**
+     * 根据Id跳转显示下载内容详情页面
+     */
+    public void downloadDetail() {
+        String id = getPara(0);
+        EmpDownloadInfo info = EmpDownloadInfo.dao.getDownloadInfo(id);
+        String[] attachUrls = info.getStr("empAttachUrl").split(";");
+        String[] attachNames = info.getStr("empAttachName").split(";");
+        ArrayList<AttachBean> urlList = new ArrayList<>();
+        for (int i = 0; i < attachUrls.length; i++) {
+            urlList.add(new AttachBean(attachNames[i], attachUrls[i]));
+        }
+        setAttr("downloadInfo", info);
+        setAttr("urlList", urlList);
+        setAttr("currentColumnName", "下载专区");
+
+        renderFreeMarker("/front/downloadContent.jsp");
     }
 }

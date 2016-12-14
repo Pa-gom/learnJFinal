@@ -5,11 +5,9 @@ import com.jfinal.ext.handler.ContextPathHandler;
 import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.c3p0.C3p0Plugin;
 import com.jfinal.render.ViewType;
-import net.evecom.college.framework.controller.HelloController;
 import net.evecom.college.framework.controller.IndexController;
+import net.evecom.college.framework.controller.StudentInfoController;
 import net.evecom.college.framework.model.*;
-import net.evecom.college.framework.routes.AdminRoutes;
-import net.evecom.college.framework.routes.FrontRoutes;
 
 /**
  * Created by Ezreal on 2016/11/25.
@@ -26,6 +24,7 @@ public class BaseConfig extends JFinalConfig{
     @Override
     public void configRoute(Routes me) {
         me.add("/",IndexController.class);
+        me.add("/student", StudentInfoController.class);
         //me.add(new FrontRoutes());
     }
 
@@ -43,6 +42,7 @@ public class BaseConfig extends JFinalConfig{
         arp.addMapping("emp_jobfair_type_index","empJobFairTypeNo", EmpJobfairTypeIndex.class);
         arp.addMapping("emp_students_info",EmpStudentsInfo.class);
         arp.addMapping("emp_download_info", EmpDownloadInfo.class);
+        arp.addMapping("emp_student_base_info", "empStudentQueue", EmpStudentBaseInfo.class);
     }
 
     @Override
