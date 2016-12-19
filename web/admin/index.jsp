@@ -155,7 +155,8 @@
                     <ul class="tree treeFolder">
                         <li><a>学生信息管理</a>
                             <ul>
-                                <li><a href="/student/baseInfo/1" target="navTab">学生基本信息管理</a></li>
+                                <li><a href="/student/baseInfo/1" target="navTab" rel="studentBaseInfo">学生基本信息管理</a>
+                                </li>
                                 <li><a href="" target="navTab" rel="row-col">毕业生源信息管理</a></li>
                             </ul>
                         </li>

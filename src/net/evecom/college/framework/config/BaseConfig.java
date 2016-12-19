@@ -44,6 +44,14 @@ public class BaseConfig extends JFinalConfig{
         arp.addMapping("emp_download_info", EmpDownloadInfo.class);
         arp.addMapping("emp_student_base_info", "empStudentQueue", EmpStudentBaseInfo.class);
         arp.addMapping("emp_profession_index", EmpProfessionIndex.class);
+        arp.addMapping("emp_minority_index", "empMinorityNo", EmpMinorityIndex.class);
+        arp.addMapping("emp_student_marry_index", "empStudentMarryNo", EmpStudentMarryIndex.class);
+        arp.addMapping("emp_address", EmpAddress.class);
+        arp.addMapping("emp_entry_type_index", "empEntryTypeNo", EmpEntryTypeIndex.class);
+        arp.addMapping("emp_exam_type_index", "empExamTypeNo", EmpExamTypeIndex.class);
+        arp.addMapping("emp_political_status_index", "empPoliticalStatusNo", EmpPoliticalStatusIndex.class);
+        arp.addMapping("emp_develop_level", EmpDevelopLevel.class);
+
     }
 
     @Override

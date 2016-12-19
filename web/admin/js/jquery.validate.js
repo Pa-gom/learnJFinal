@@ -293,6 +293,7 @@
             dateISO: "Please enter a valid date (ISO).",
             number: "Please enter a valid number.",
             digits: "Please enter only digits.",
+            idNumber: "身份证号码格式错误",
             creditcard: "Please enter a valid credit card number.",
             equalTo: "Please enter the same value again.",
             maxlength: $.validator.format("Please enter no more than {0} characters."),
@@ -820,6 +821,7 @@
             dateISO: {dateISO: true},
             number: {number: true},
             digits: {digits: true},
+            idNumber: {idNumber: true},
             creditcard: {creditcard: true}
         },
 
@@ -1047,7 +1049,10 @@
             digits: function (value, element) {
                 return this.optional(element) || /^\d+$/.test(value);
             },
-
+            idNumber: function (value, element) {
+                var idcheck = /^((1[1-5])|(2[1-3])|(3[1-7])|(4[1-6])|(5[0-4])|(6[1-5])|71|(8[12])|91)\d{4}((19\d{2}(0[13-9]|1[012])(0[1-9]|[12]\d|30))|(19\d{2}(0[13578]|1[02])31)|(19\d{2}02(0[1-9]|1\d|2[0-8]))|(19([13579][26]|[2468][048]|0[48])0229))\d{3}(\d|X|x)?$/;
+                return this.optional(element) || idcheck.test(value);
+            },
             // http://docs.jquery.com/Plugins/Validation/Methods/creditcard
             // based on http://en.wikipedia.org/wiki/Luhn
             creditcard: function (value, element) {
@@ -1078,6 +1083,7 @@
 
                 return (nCheck % 10) === 0;
             },
+
 
             // http://docs.jquery.com/Plugins/Validation/Methods/minlength
             minlength: function (value, element, param) {
