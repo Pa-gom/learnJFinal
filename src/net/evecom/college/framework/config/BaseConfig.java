@@ -6,7 +6,9 @@ import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.c3p0.C3p0Plugin;
 import com.jfinal.render.ViewType;
 import net.evecom.college.framework.controller.IndexController;
+import net.evecom.college.framework.controller.RecruitInfoController;
 import net.evecom.college.framework.controller.StudentInfoController;
+import net.evecom.college.framework.controller.UncheckRecruitInfoController;
 import net.evecom.college.framework.model.*;
 
 /**
@@ -25,6 +27,8 @@ public class BaseConfig extends JFinalConfig{
     public void configRoute(Routes me) {
         me.add("/",IndexController.class);
         me.add("/student", StudentInfoController.class);
+        me.add("/recruit", RecruitInfoController.class);
+        me.add("/uncheckRecruit", UncheckRecruitInfoController.class);
         //me.add(new FrontRoutes());
     }
 

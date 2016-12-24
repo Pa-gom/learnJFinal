@@ -112,6 +112,7 @@ public class StudentInfoController extends Controller {
             pageCount = infoCount / 30 + 1;
         }
         setAttr("studentList", EmpStudentBaseInfo.dao.getStudentList(currentPage, 30, new StudentBaseInfoBean(stuNum, stuName, sex, grade, college, profession, level)).getList());
+        setAttr("infoCount", infoCount);
         setAttr("currentPage", currentPage);
         setAttr("pageCount", pageCount);
         renderJson();
@@ -129,14 +130,13 @@ public class StudentInfoController extends Controller {
         setAttr("examTypeList", EmpExamTypeIndex.dao.getExamTypeList());
         setAttr("entryTypeList", EmpEntryTypeIndex.dao.getEntryTypeList());
         setAttr("levelList", EmpDevelopLevel.dao.getLevelList());
-        renderFreeMarker("/admin/dialogAddStudentBase.jsp");
+        renderFreeMarker("/admin/dialog/dialogAddStudentBase.jsp");
     }
 
     /**
      * 打开修改框
      */
     public void modifyDialog() {
-        getPara(0);
         List<EmpStudentBaseInfo> list = EmpStudentBaseInfo.dao.find("select * from emp_student_base_info where empStudentNo ='" + getPara(0) + "'");
         EmpStudentBaseInfo info = EmpStudentBaseInfo.dao.findById(list.get(0).getInt("empStudentQueue"));
         setAttr("collegeList", EmpProfessionIndex.dao.getCollegeList());
@@ -148,7 +148,7 @@ public class StudentInfoController extends Controller {
         setAttr("entryTypeList", EmpEntryTypeIndex.dao.getEntryTypeList());
         setAttr("levelList", EmpDevelopLevel.dao.getLevelList());
         setAttr("info", info);
-        renderFreeMarker("/admin/dialogModifyStudentBase.jsp");
+        renderFreeMarker("/admin/dialog/dialogModifyStudentBase.jsp");
     }
 
     /**

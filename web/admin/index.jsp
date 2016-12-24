@@ -183,14 +183,27 @@
                     <ul class="tree treeFolder">
                         <li><a>招聘信息管理</a>
                             <ul>
-                                <li><a href="dwz.frag.xml" target="navTab" external="true">普通招聘信息管理</a></li>
-                                <li><a href="dwz.frag.xml" target="navTab" external="true">大型招聘会管理</a></li>
+                                <li><a href="/recruit/school/1" target="navTab" rel="schoolInfo">校园招聘管理</a></li>
+                                <li><a href="/recruit/practice/1" target="navTab" rel="practiceInfo">实习招聘管理</a></li>
+                                <li><a href="/recruit/network/1" target="navTab" rel="networkInfo">网络招聘管理</a></li>
+                                <li><a href="/recruit/notice/1" target="navTab" rel="noticeInfo">通知公告管理</a></li>
+                            </ul>
+                        </li>
+                        <li><a>招聘信息审核</a>
+                            <ul>
+                                <li><a href="/uncheckRecruit/school/1" target="navTab"
+                                       rel="uncheckSchoolInfo">校园招聘审核</a></li>
+                                <li><a href="/uncheckRecruit/practice/1" target="navTab" rel="uncheckPracticeInfo">实习招聘审核</a>
+                                </li>
+                                <li><a href="/uncheckRecruit/network/1" target="navTab"
+                                       rel="uncheckNetworkInfo">网络招聘审核</a></li>
+                                <li><a href="/recruit/refuse/1" target="navTab" rel="refuseInfo">查看驳回信息</a></li>
                             </ul>
                         </li>
                         <li><a>笔试面试场地管理</a>
                             <ul>
-                                <li><a href="dwz.frag.xml" target="navTab" external="true">场地信息管理</a></li>
-                                <li><a href="dwz.frag.xml" target="navTab" external="true">场地申请管理</a></li>
+                                <li><a href="" target="navTab" external="true">场地信息管理</a></li>
+                                <li><a href="" target="navTab" external="true">场地申请管理</a></li>
                             </ul>
                         </li>
                         <li><a>企业信息管理</a>

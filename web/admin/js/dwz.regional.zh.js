@@ -22,10 +22,9 @@
             range: $.validator.format("请输入一个介于 {0} 和 {1} 之间的值"),
             max: $.validator.format("请输入一个最大为 {0} 的值"),
             min: $.validator.format("请输入一个最小为 {0} 的值"),
-
             alphanumeric: "字母、数字、下划线",
             lettersonly: "必须是字母",
-            phone: "数字、空格、括号"
+            phone: "手机号码格式错误"
         });
     }
 
