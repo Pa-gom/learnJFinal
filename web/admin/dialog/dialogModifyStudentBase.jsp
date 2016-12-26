@@ -1,13 +1,19 @@
 <div class="pageContent">
-    <form method="post" action="/student/save" onsubmit='return validateCallback(this,
+    <form method="post" action="/student/update" onsubmit='return validateCallback(this,
         (function (json){
             if(json.saveResult == "0"){
                 alertMsg.info("修改成功");
-                 $.pdialog.closeCurrent();
+                $.pdialog.closeCurrent();
+                navTab.reload();
+            }else{
+                alertMsg.info("修改失败");
+                $.pdialog.closeCurrent();
+                navTab.reload();
             }
             return false;
         }),
            "是否提交");' class="pageForm required-validate">
+        <input type="text" value="${info.empStudentQueue}" name="stu.empStudentQueue" hidden/>
         <div class="pageFormContent nowrap" layoutH="58" style="padding-left: 36px;">
             <div class="units">
                 <label> &nbsp;&nbsp;姓&nbsp;&nbsp;&nbsp;&nbsp;名：&nbsp;&nbsp;</label>
@@ -52,13 +58,13 @@
             </div>
             <div class="units">
                 <label>&nbsp;&nbsp;籍&nbsp;&nbsp;&nbsp;&nbsp;贯：&nbsp;&nbsp;</label>
-                <select class="province" onchange="getCity(0)">
+                <select class="province" id="initProvince1" onchange="getCity(0)">
                     <option>请选择</option>
                     <#list provinceList as x>
                         <option value="${x.province}">${x.province}</option>
                     </#list>
                 </select>
-                <select class="city required" onchange="setStuLocation(0)" name="city1"></select>
+                <select class="city required" id="initCity1" onchange="setStuLocation(0)" name="city1"></select>
                 <input class="location" type="text" size="25" name="stu.empStudentLocation" hidden/>
             </div>
             <div class="units">
@@ -79,13 +85,13 @@
             </div>
             <div class="units">
                 <label>生&nbsp;&nbsp;源&nbsp;&nbsp;地：</label>
-                <select class="province" onchange="getCity(1)">
+                <select class="province" id="initProvince2" onchange="getCity(1)">
                     <option>请选择</option>
                     <#list provinceList as y>
                         <option value="${y.province}">${y.province}</option>
                     </#list>
                 </select>
-                <select class="stu city required" onchange="setStuLocation(1)" name="city2"></select>
+                <select class="stu city required" id="initCity2" onchange="setStuLocation(1)" name="city2"></select>
                 <input class="location" type="text" size="25" name="stu.empStudentStuLocation" hidden/>
             </div>
             <div class="units">
@@ -180,14 +186,14 @@
                 <li>
                     <div class="buttonActive">
                         <div class="buttonContent">
-                            <button type="submit">添加信息</button>
+                            <button type="submit">修改信息</button>
                         </div>
                     </div>
                 </li>
                 <li>
                     <div class="button">
                         <div class="buttonContent">
-                            <button type="reset">清空重输</button>
+                            <button type="button" onclick="closedialog()">取消修改</button>
                         </div>
                     </div>
                 </li>
@@ -248,9 +254,7 @@
         });
     }
 
-    function setStuLocation(index) {
-        $(".location:eq(" + index + ")").val($(".province:eq(" + index + ")").val() + "," + $(".city:eq(" + index + ")").val());
-    }
+
 
     /**
      * 根据学院查询并显示专业列表
@@ -280,5 +284,29 @@
 
     function initSomeData() {
         $('.minorityList').val("${info.empStudentMinority}");
+        $('#initProvince1').val("${province1}");
+        getCity(0);
+        $('#initProvince2').val("${province2}");
+        getCity(1);
+        $('.collegeList').val("${info.empStudentCollege}");
+        showProfessionList();
+        setTimeout(setData, 200);//设置延迟，必须等select的选项加载完后才能设置值
+    }
+
+    function setData() {
+        $('#initCity1').val("${city1}");
+        $('#initCity2').val("${city2}");
+        $('.professionBox').val("${info.empStudentProfession}");
+        setTimeout(setStuLocation(0), 200);
+        setTimeout(setStuLocation(1), 100);
+    }
+
+    function setStuLocation(index) {
+        $(".location:eq(" + index + ")").val($(".province:eq(" + index + ")").val() + "," + $(".city:eq(" + index + ")").val());
+    }
+
+
+    function closedialog() {
+        $.pdialog.close("modifyBase");
     }
 </script>

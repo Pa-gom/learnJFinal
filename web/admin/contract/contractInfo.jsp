@@ -1,5 +1,5 @@
 <div class="pageHeader">
-    <form id="pagerForm" action="/student/baseInfo/1" method="post" onsubmit="return submitQuery(this)">
+    <form id="pagerForm" action="/contract/1" method="post" onsubmit="return submitQuery(this)">
         <div class="searchBar">
             <table class="searchContent">
                 <tr>
@@ -33,15 +33,6 @@
                     <td>
                         姓名：<input type="text" name="stuName"/>
                     </td>
-                    <td>
-                        培养层次：
-                        <select class="" name="level">
-                            <option value="">不限</option>
-                            <option value="本科">本科</option>
-                            <option value="硕士">硕士</option>
-                            <option value="博士">博士</option>
-                        </select>
-                    </td>
                 </tr>
             </table>
             <div class="subBar">
@@ -61,7 +52,7 @@
 <div class="pageContent">
     <div class="panelBar">
         <ul class="toolBar">
-            <li><a class="add" href="/student/addDialog" target="dialog" mask="true" title="添加学生信息"><span>添加</span></a>
+            <li><a class="add" href="/contract/addDialog" target="dialog" mask="true" title="添加签约协议"><span>添加</span></a>
             </li>
             <li><a title="确实要删除这些记录吗?" onclick="delInfoList()" class="delete"><span>批量删除</span></a></li>
             </li>
@@ -79,43 +70,43 @@
             <th width="120" align="center">专业</th>
             <th width="100" align="center">学号</th>
             <th width="80" align="center">姓名</th>
-            <th width="40" align="center">性别</th>
-            <th width="60" align="center">民族</th>
-            <th width="120" align="center">籍贯</th>
-            <th width="120" align="center">身份证号</th>
-            <th width="80" align="center">政治面貌</th>
-            <th width="80" align="center">入学年月</th>
-            <th width="120" align="center">生源地</th>
-            <th width="120" align="center">电话</th>
-            <th width="120" align="center">联系地址</th>
-            <th width="120" align="center">入学方式</th>
+            <th width="80" align="center">性别</th>
+            <th width="120" align="center">学生电话</th>
+            <th width="40" align="center">签约企业</th>
+            <th width="60" align="center">企业信用代码</th>
+            <th width="120" align="center">企业类型</th>
+            <th width="120" align="center">企业联系人</th>
+            <th width="120" align="center">企业联系电话</th>
+            <th width="80" align="center">就业岗位</th>
+            <th width="80" align="center">就业地址</th>
+            <th width="120" align="center">所属行业</th>
             <th width="100" align="center">操作</th>
         </tr>
         </thead>
         <tbody id="stuTable">
-        <#list studentList.getList() as x>
+        <#list infoList.getList() as x>
             <tr target="sid_user" rel="${x_index}" class="infoList"
                 style="text-align:center;overflow:hidden; white-space:nowrap;">
-                <td><input class="selectTools" value="${x.empStudentNo}" name="ids" type="checkbox"></td>
-                <td>${x.empStudentCollege}</td>
-                <td>${x.empStudentProfession}</td>
-                <td>${x.empStudentNo}</td>
-                <td>${x.empStudentName}</td>
-                <td>${x.empStudentSex}</td>
-                <td>${x.empStudentMinority}</td>
-                <td>${x.empStudentLocation}</td>
-                <td>${x.empStudentIdNo}</td>
-                <td>${x.empStudentPoliticalStatus}</td>
-                <td>${x.empStudentEntryStudyDate}</td>
-                <td>${x.empStudentStuLocation}</td>
-                <td>${x.empStudentTel}</td>
-                <td>${x.empStudentAddress}</td>
-                <td>${x.empStudentEntryStudyType}</td>
+                <td><input class="selectTools" value="${x.empContractNo}" name="ids" type="checkbox"></td>
+                <td>${x.empContractStudentCollege}</td>
+                <td>${x.empContractStudentProfession}</td>
+                <td>${x.empContractStudentNo}</td>
+                <td>${x.empContractStudentName}</td>
+                <td>${x.empContractStudentSex}</td>
+                <td>${x.empContractStudentTel}</td>
+                <td>${x.empCompanyName}</td>
+                <td>${x.empCompanyCode}</td>
+                <td>${x.empCompanyType}</td>
+                <td>${x.empCompanyContact}</td>
+                <td>${x.empCompanyContactTel}</td>
+                <td>${x.empCompanyJob}</td>
+                <td>${x.empCompanyJobAddress}</td>
+                <td>${x.empContractStudentIndustry}</td>
                 <td>
-                    <a title="删除" class="btnDel" onclick="delInfo(this)">删除</a>
-                    <a title="编辑学生信息" class="btnEdit add" href="/student/modifyDialog/${x.empStudentNo}" target="dialog"
-                       rel="modifyBase"
-                       mask="true" title="修改学生信息">编辑</a>
+                    <a title="删除" class="btnDel" onclick="delInfo(${x.empContractNo})">删除</a>
+                    <a title="编辑签约信息" class="btnEdit add" href="/contract/modifyDialog/${x.empContractNo}"
+                       target="dialog" rel="modifyContract"
+                       mask="true" title="编辑签约信息">编辑</a>
                 </td>
             </tr>
         </#list>
@@ -124,64 +115,64 @@
     <div class="panelBar">
         <div class="pages">
 			<span>显示:共
-			${studentList.getList().size()}
+			${infoList.getList().size()}
 			   条</span>
         </div>
 
         <div class="pagination" targettype="navTab" totalcount="200" numperpage="20" pagenumshown="10" currentpage="1">
             <ul>
                 <li class="j-first disabled">
-                    <a class="first" href="/student/baseInfo/1" target="navTab" title="学生基本信息管理"
-                       rel="studentBaseInfo"><span>首页</span></a>
+                    <a class="first" href="/contract/1" target="navTab" title="签约协议管理"
+                       rel="contractInfo"><span>首页</span></a>
                 </li>
                 <#if currentPage gt 1>
                     <li class="j-prev disabled">
-                        <a class="previous" href="/student/baseInfo/${currentPage-1}" target="navTab"
-                           rel="studentBaseInfo"
-                           title="学生基本信息管理"><span>上一页</span></a>
+                        <a class="previous" href="/contract/${currentPage-1}" target="navTab"
+                           rel="contractInfo"
+                           title="签约协议管理"><span>上一页</span></a>
                     </li>
                 </#if>
                 <#list (currentPage-5)..(currentPage-1) as s>
                     <#if s gt 0>
-                        <li class="j-num"><a href="/student/baseInfo/${s}" target="navTab" title="学生基本信息管理"
-                                             rel="studentBaseInfo">${s}</a>
+                        <li class="j-num"><a href="/contract/${s}" target="navTab" title="签约协议管理"
+                                             rel="contractInfo">${s}</a>
                         </li>
                     </#if>
                 </#list>
 
-                <li class="selected j-num"><a href="/student/baseInfo/${currentPage}" target="navTab"
-                                              rel="studentBaseInfo"
-                                              title="学生基本信息管理">${currentPage}</a></li>
+                <li class="selected j-num"><a href="/contract/${currentPage}" target="navTab"
+                                              rel="contractInfo"
+                                              title="签约协议管理">${currentPage}</a></li>
 
                 <#list (currentPage+1)..(currentPage+5) as s>
                     <#if s lte pageCount>
-                        <li class="j-num"><a href="/student/baseInfo/${s}" target="navTab" title="学生基本信息管理"
-                                             rel="studentBaseInfo">${s}</a>
+                        <li class="j-num"><a href="/contract/${s}" target="navTab" title="签约协议管理"
+                                             rel="contractInfo">${s}</a>
                         </li>
                     </#if>
                 </#list>
                 <span>...</span>
                 <#list (pageCount-1)..(pageCount) as s>
                     <#if s gt (currentPage+5)>
-                        <li class="j-num"><a href="/student/baseInfo/${s}" target="navTab" title="学生基本信息管理"
-                                             rel="studentBaseInfo">${s}</a>
+                        <li class="j-num"><a href="/contract/${s}" target="navTab" title="签约协议管理"
+                                             rel="contractInfo">${s}</a>
                         </li>
                     </#if>
                 </#list>
                 <#if currentPage lt pageCount>
                     <li class="j-next">
-                        <a class="next" href="/student/baseInfo/${currentPage+1}" target="navTab" rel="studentBaseInfo"
-                           title="学生基本信息管理"><span>下一页</span></a>
+                        <a class="next" href="/contract/${currentPage+1}" target="navTab" rel="contractInfo"
+                           title="签约协议管理"><span>下一页</span></a>
                     </li>
                 </#if>
                 <li class="j-last">
-                    <a class="last" href="/student/baseInfo/${pageCount}" target="navTab" rel="studentBaseInfo"
-                       title="学生基本信息管理"><span>末页</span></a>
+                    <a class="last" href="/contract/${pageCount}" target="navTab" rel="contractInfo"
+                       title="签约协议管理"><span>末页</span></a>
                 </li>
                 <li class="jumpto">
                     <input class="textInput" id="pageNum" onchange="jumpToPage()" type="text" size="4" value="1">
-                    <a href="/student/baseInfo/1" id="goToUrl" target="navTab" title="学生基本信息管理"
-                       rel="studentBaseInfo">跳转</a>
+                    <a href="/contract/1" id="goToUrl" target="navTab" title="签约协议管理"
+                       rel="contractInfo">跳转</a>
                 </li>
             </ul>
         </div>
@@ -189,7 +180,6 @@
     </div>
 </div>
 <script>
-
 
 
     /**
@@ -204,7 +194,7 @@
             $("#pageNum").val("1");
             return false;
         }
-        url = url.replace("/student/baseInfo/1", "/student/baseInfo/" + num);
+        url = url.replace("/contract/1", "/contract/" + num);
         $("#goToUrl").attr("href", url);
     }
 
@@ -234,13 +224,12 @@
         });
     }
 
-    function delInfo(element) {
-        var stuNo = $($(element).parent().parent().parent().children("td:eq(3)")).text();
+    function delInfo(contractNo) {
         $.ajax({
             type: "POST",
-            url: "/student/delete/",
+            url: "/contract/delete/",
             data: {
-                "stuNo": stuNo,
+                "contractNo": contractNo,
             },
             dataType: "json",
             success: function (data) {
@@ -258,16 +247,16 @@
         var list = "";
         $('.selectTools:checked').each(function (i) {
             if (i > 0) {
-                list += "," + ($(this).parent().parent().parent().children("td:eq(3)")).text();
+                list += "," + $(this).val();
             } else {
-                list = ($(this).parent().parent().parent().children("td:eq(3)")).text()
+                list = $(this).val();
             }
         });
         $.ajax({
             type: "POST",
-            url: "/student/deleteList/",
+            url: "/contract/deleteList/",
             data: {
-                "stuNo": list,
+                "contractNo": list,
             },
             dataType: "json",
             success: function (data) {

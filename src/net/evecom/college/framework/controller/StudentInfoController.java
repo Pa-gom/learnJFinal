@@ -80,6 +80,8 @@ public class StudentInfoController extends Controller {
      */
     public void professionJson() {
         String college = getPara("college");
+        System.out.print(college);
+        System.out.print(EmpProfessionIndex.dao.getProfessionListByCollegeName(college).size());
         setAttr("professionList", EmpProfessionIndex.dao.getProfessionListByCollegeName(college));
         renderJson();
     }
@@ -139,6 +141,15 @@ public class StudentInfoController extends Controller {
     public void modifyDialog() {
         List<EmpStudentBaseInfo> list = EmpStudentBaseInfo.dao.find("select * from emp_student_base_info where empStudentNo ='" + getPara(0) + "'");
         EmpStudentBaseInfo info = EmpStudentBaseInfo.dao.findById(list.get(0).getInt("empStudentQueue"));
+        String province1 = info.getStr("empStudentLocation").split(",")[0];
+        String city1 = info.getStr("empStudentLocation").split(",")[1];
+        String province2 = info.getStr("empStudentStuLocation").split(",")[0];
+        String city2 = info.getStr("empStudentStuLocation").split(",")[1];
+
+        setAttr("province1", province1);
+        setAttr("province2", province2);
+        setAttr("city1", city1);
+        setAttr("city2", city2);
         setAttr("collegeList", EmpProfessionIndex.dao.getCollegeList());
         setAttr("minorityList", EmpMinorityIndex.dao.getMinorityList());
         setAttr("marryList", EmpStudentMarryIndex.dao.getMarryList());
@@ -205,6 +216,13 @@ public class StudentInfoController extends Controller {
                 setAttr("resultCode", "1");//删除失败
             }
         }
+        renderJson();
+    }
+
+    public void update() {
+        EmpStudentBaseInfo base = getModel(EmpStudentBaseInfo.class, "stu");
+        base.update();
+        setAttr("saveResult", "0");
         renderJson();
     }
 }

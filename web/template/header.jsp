@@ -73,9 +73,10 @@
                         <td><a href="/">首页</a></td>
                         <td><a target="_self" href="./html/yxsz/1.html">招聘服务<i class="fa">&#xf107;</i></a>
                             <ul>
-                                <li><a href="/list/17-1">校园招聘</a></li>
-                                <li><a href="/list/81-1">网络招聘</a></li>
-                                <li><a href="/list/66-1">实习招聘</a></li>
+                                <li><a href="/list/1-1">校园招聘</a></li>
+                                <li><a href="/list/2-1">网络招聘</a></li>
+                                <li><a href="/list/3-1">实习招聘</a></li>
+                                <li><a href="/list/4-1">通知公告</a></li>
                                 <li><a href="/jobfairList/">大型招聘会</a></li>
                             </ul>
                         </td>

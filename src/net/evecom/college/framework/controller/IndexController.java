@@ -60,7 +60,7 @@ public class IndexController extends Controller{
      * 显示招聘或通知列表
      */
     public void list(){
-        String id = getPara(0);
+        String typeName;
         int typeId = getParaToInt(1);
         int currentPage = 1;
         //总页数
@@ -77,9 +77,26 @@ public class IndexController extends Controller{
         } else {
             pageCount = infoCount / 10 + 1;
         }
+        switch (getParaToInt(0)) {
+            case 1:
+                typeName = "校园招聘";
+                break;
+            case 2:
+                typeName = "网络招聘";
+                break;
+            case 3:
+                typeName = "实习招聘";
+                break;
+            case 4:
+                typeName = "通知公告";
+                break;
+            default:
+                typeName = "校园招聘";
+                break;
+        }
         setAttr("infoList", EmpRecruitInfo.dao.getEmpRecruitInfoList(currentPage, 10, typeId));
-        setAttr("currentColumnName", EmpRecruitInfo.dao.getCurrentColumnName(id));
-        setAttr("infoId", id);
+        setAttr("currentColumnName", typeName);
+        setAttr("infoId", getPara(0));
         setAttr("typeId", typeId);
         setAttr("currentPage", currentPage);
         setAttr("pageCount", pageCount);
