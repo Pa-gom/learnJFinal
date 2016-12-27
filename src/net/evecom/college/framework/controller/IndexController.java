@@ -2,11 +2,9 @@ package net.evecom.college.framework.controller;
 
 import com.jfinal.core.Controller;
 import com.jfinal.plugin.activerecord.Page;
+import com.jfinal.render.FreeMarkerRender;
 import net.evecom.college.framework.bean.AttachBean;
-import net.evecom.college.framework.model.EmpDownloadInfo;
-import net.evecom.college.framework.model.EmpJobfairInfo;
-import net.evecom.college.framework.model.EmpRecruitInfo;
-import net.evecom.college.framework.model.EmpStudentsInfo;
+import net.evecom.college.framework.model.*;
 
 import java.util.ArrayList;
 
@@ -14,6 +12,31 @@ import java.util.ArrayList;
  * Created by Ezreal on 2016/11/25.
  */
 public class IndexController extends Controller{
+
+    public void login() {
+        renderFreeMarker("/login.jsp");
+    }
+
+    public void stuffLogin() {
+        String user = getPara("name");
+        String pass = getPara("pwd");
+        System.out.print(user + pass);
+        EmpStuffInfo info = EmpStuffInfo.dao.findById(user);
+        if (info != null) {
+            if (info.getStr("empStuffPass").equals(pass)) {
+                setAttr("name", info.getStr("empStuffName"));
+                renderFreeMarker("/admin/index.jsp");
+            } else {
+                index();
+            }
+        } else {
+            index();
+        }
+    }
+
+    public void exit() {
+        renderFreeMarker("/admin/index.jsp");
+    }
 
     /**
      * 初始化首页的数据
@@ -77,7 +100,7 @@ public class IndexController extends Controller{
         } else {
             pageCount = infoCount / 10 + 1;
         }
-        switch (getParaToInt(0)) {
+        switch (getParaToInt(1)) {
             case 1:
                 typeName = "校园招聘";
                 break;

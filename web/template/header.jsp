@@ -62,7 +62,7 @@
                 }
             </script>
             <a id="logo" href="./">
-                <img src="/themes/30480/fzu_new/images/logo.gif" style="float: left;"/>
+                <p style="font-size: 28px;color: red;margin: 14px 20px;">基于JFinal的就业管理中心系统</p>
             </a>
             <form id="searcher" action="/html/search.html" method="post">
                 <input type="text" value="" name="keyword"/><button><i class="fa fa-search"></i></button>
@@ -73,10 +73,10 @@
                         <td><a href="/">首页</a></td>
                         <td><a target="_self" href="./html/yxsz/1.html">招聘服务<i class="fa">&#xf107;</i></a>
                             <ul>
-                                <li><a href="/list/1-1">校园招聘</a></li>
-                                <li><a href="/list/2-1">网络招聘</a></li>
-                                <li><a href="/list/3-1">实习招聘</a></li>
-                                <li><a href="/list/4-1">通知公告</a></li>
+                                <li><a href="/list/302-1">校园招聘</a></li>
+                                <li><a href="/list/227-3">网络招聘</a></li>
+                                <li><a href="/list/378-2">实习招聘</a></li>
+                                <li><a href="/list/237-4">通知公告</a></li>
                                 <li><a href="/jobfairList/">大型招聘会</a></li>
                             </ul>
                         </td>
@@ -95,10 +95,15 @@
                         </td>
                         <td><a href="/downloadList/1">下载专区</a></td>
                         <td><a href="">中心介绍</a></td>
-                        <td><a target="_self" href="./html/zjfd/1.html">走进校园<i class="fa">&#xf107;</i></a>
+                        <td><a href="">政策法规<i class="fa">&#xf107;</i></a>
                             <ul>
-                                <li><a target="_self" href="/html/zjfd/bgxx/1.html">办公信息</a></li>
-                                <li><a target="_self" href="/html/zjfd/syxx/1.html">实用信息</a></li>
+                                <li><a href="/studentsInfo/4">国家政策</a></li>
+                                <li><a href="/studentsInfo/5">学校政策</a></li>
+                            </ul>
+                        </td>
+                        <td><a href="">走进校园<i class="fa">&#xf107;</i></a>
+                            <ul>
+                                <li class="main_nav"><a class="cd-signin" href="/login">登陆</a></li>
                             </ul>
                         </td>
                     </tr>

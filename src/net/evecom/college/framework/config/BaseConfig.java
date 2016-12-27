@@ -60,6 +60,7 @@ public class BaseConfig extends JFinalConfig{
         arp.addMapping("emp_contract_info", "empContractNo", EmpContractInfo.class);
         arp.addMapping("emp_industry_index", "empIndustryNo", EmpIndustryIndex.class);
         arp.addMapping("emp_company_type_index", "empCompanyTypeNo", EmpCompanyTypeIndex.class);
+        arp.addMapping("emp_stuff_info", "empStuffNo", EmpStuffInfo.class);
 
     }
 

@@ -88,10 +88,30 @@
     var maxMouth=curMouth;//翻页的上限
     var minMouth=2015*12+2;//翻页的下限(年*12+月,)
     var bannerNews=[];
-    bannerNews.push({'title':"“12·4”国家宪法日",'link':"http://npc.people.com.cn/GB/28320/391019/",'mainImage':"./attach/2016/12/02/249572.jpg",'dateline':"2016-12-2"});
-    bannerNews.push({'title':"银杏黄了（阳光园）",'link':"##",'mainImage':"./attach/2016/12/02/249572.jpg",'dateline':"2016-11-29"});
-    bannerNews.push({'title':"学习贯彻十八届六中全会精神",'link':"http://news.fzu.edu.cn/html/fdyw/2016/11/04/ca339ac4-06ed-4567-967d-787d88331541.html",'mainImage':"./attach/2016/12/02/249572.jpg",'dateline':"2016-11-4"});
-    bannerNews.push({'title':"奥运冠军走进福州大学",'link':"http://news.fzu.edu.cn/html/fdyw/2016/10/31/37b046ba-7d58-4633-88b8-486fdfb3cf0a.html",'mainImage':"./attach/2016/12/02/249572.jpg",'dateline':"2011-10-28"});
+    bannerNews.push({
+        'title': "“12·4”国家宪法日",
+        'link': "#",
+        'mainImage': "./themes/30480/fzu_new/images/tem.jpg",
+        'dateline': "2016-12-2"
+    });
+    bannerNews.push({
+        'title': "银杏黄了（阳光园）",
+        'link': "##",
+        'mainImage': "./themes/30480/fzu_new/images/tem.jpg",
+        'dateline': "2016-11-29"
+    });
+    bannerNews.push({
+        'title': "学习贯彻十八届六中全会精神",
+        'link': "#",
+        'mainImage': "./attach/2016/12/02/249572.jpg",
+        'dateline': "2016-11-4"
+    });
+    bannerNews.push({
+        'title': "奥运冠军走进福州大学",
+        'link': "#",
+        'mainImage': "./attach/2016/12/02/249572.jpg",
+        'dateline': "2011-10-28"
+    });
     loadBanner(curBanner);
     loadCalender(curMouth);
 

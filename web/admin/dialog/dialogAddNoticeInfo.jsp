@@ -4,6 +4,7 @@
             if(json.saveResult == "0"){
                 alertMsg.info("添加成功");
                 navTab.closeCurrentTab();
+                navTab.reload();
             }else{
                 alertMsg.info("添加失败");
                 navTab.reload();

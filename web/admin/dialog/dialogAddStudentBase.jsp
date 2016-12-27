@@ -4,10 +4,13 @@
             if(json.saveResult == "0"){
                 alertMsg.info("添加成功");
                  $.pdialog.closeCurrent();
+                 navTab.reload();
             }else if(json.saveResult == "1"){
                 alertMsg.info("该学号已存在");
+                navTab.reload();
             }else if(json.saveResult == "2"){
                 alertMsg.info("该身份证号已存在");
+                navTab.reload();
             }
             return false;
         }),

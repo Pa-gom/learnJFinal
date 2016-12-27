@@ -4,10 +4,13 @@
             if(json.saveResult == "0"){
                 alertMsg.info("添加成功");
                  $.pdialog.closeCurrent();
+                 navTab.reload();
             }else if(json.saveResult == "1"){
                 alertMsg.info("该生已签协议，不可再添加");
+                navTab.reload();
             }else if(json.saveResult == "2"){
                 alertMsg.info("该生已签协议，不可再添加");
+                navTab.reload();
             }
             return false;
         }),

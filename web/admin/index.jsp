@@ -103,10 +103,10 @@
 <div id="layout">
     <div id="header">
         <div class="headerNav">
-            <p style="font-size: 28px;color: red;margin: 14px 20px;">就业管理系统</p>
+            <p style="font-size: 28px;color: red;margin: 14px 20px;">基于JFinal的就业管理中心系统</p>
             <ul class="nav">
                 <li><a href="#" target="dialog" height="400">您好，${name}</a></li>
-                <li><a href="/">退出</a></li>
+                <li><a href="/exit">退出</a></li>
             </ul>
             <ul class="themeList" id="themeList">
                 <li theme="default">
@@ -155,7 +155,7 @@
                     <ul class="tree treeFolder">
                         <li><a>学生信息管理</a>
                             <ul>
-                                <li><a href="/student/baseInfo/1" target="navTab" rel="studentBaseInfo">学生基本信息管理</a>
+                                <li><a id="firstPage" href="/student/baseInfo/1" target="navTab" rel="studentBaseInfo">学生基本信息管理</a>
                                 </li>
                             </ul>
                         </li>
@@ -199,17 +199,6 @@
                                 <li><a href="/recruit/refuse/1" target="navTab" rel="refuseInfo">查看驳回信息</a></li>
                             </ul>
                         </li>
-                        <li><a>笔试面试场地管理</a>
-                            <ul>
-                                <li><a href="" target="navTab" external="true">场地信息管理</a></li>
-                                <li><a href="" target="navTab" external="true">场地申请管理</a></li>
-                            </ul>
-                        </li>
-                        <li><a>企业信息管理</a>
-                            <ul>
-                                <li><a href="dwz.frag.xml" target="navTab" external="true">企业信息管理</a></li>
-                            </ul>
-                        </li>
                     </ul>
                 </div>
             </div>
@@ -220,7 +209,8 @@
             <div class="tabsPageHeader">
                 <div class="tabsPageHeaderContent"><!-- 显示左右控制时添加 class="tabsPageHeaderMargin" -->
                     <ul class="navTab-tab">
-                        <li tabid="main" class="main"><a href="javascript:;"><span><span
+                        <li tabid="main" class="main">
+                            <a href="javascript:;" title="我的主页"><span><span
                                 class="home_icon">我的主页</span></span></a></li>
                     </ul>
                 </div>
@@ -242,6 +232,33 @@
 </div>
 
 <div id="footer">221300416_饶观亮_专业实习设计</div>
-
+<script>
+    $(document).ready(function () {
+        expandMenu(1);
+    });
+    /***
+     * 根据序号展开某个一级菜单
+     * @param index 一级菜单索引号（记数从0开始）
+     */
+    function expandMenu(index) {//在$(function(){ })方法里调用即可
+        var count = 10000;//最多循环10000次
+        var success = true;//假设调用成功
+        var my_interval = setInterval(function () {
+            //var date = new Date();
+            //console.log(date.getMinutes() + ':' + date.getSeconds() + ':' + date.getMilliseconds());
+            success = true;
+            try {
+                $('div.accordion').accordion("activate", index);//参数index为需要展开的第几项菜单序号（计数从0开始）
+            } catch (e) {
+                success = false;
+                //console.log('err:' + e);
+            }
+            if (success || (count < 0)) {
+                clearInterval(my_interval);
+                count -= 1;
+            }
+        });
+    }
+</script>
 </body>
 </html>

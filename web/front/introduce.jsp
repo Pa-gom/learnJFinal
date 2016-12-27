@@ -17,7 +17,7 @@ To change this template use File | Settings | File Templates.
     <link href="http://libs.baidu.com/fontawesome/4.0.3/css/font-awesome.min.css" rel="stylesheet">
     <script src="http://libs.baidu.com/jquery/1.7.1/jquery.min.js"></script>
     <script type="text/javascript" src="/themes/30480/fzu_new/js/common.js"></script>
-    <title>旗山群学讲坛第十讲：中国人口发展与政策调整趋势 - 福州大学</title>
+    <title>${jobfair.empJobFairTitle}</title>
     <!-- Favicons -->
     <link rel="shortcut icon" href="/themes/30480/fzu_new/ico/favicon.ico">
     <link rel="apple-touch-icon" href="/themes/30480/fzu_new/ico/apple-touch-icon.png">
@@ -32,7 +32,7 @@ To change this template use File | Settings | File Templates.
 <#include "/template/header.jsp"/>
 <!-- Start Banner -->
 
-<div id="banner" style="background-image:url(/attach/2016/12/02/249572.jpg);">
+<div id="banner" style="background-image:url(/themes/30480/fzu_new/images/tem.jpg);">
 
     <!--
 <div id="cat">
