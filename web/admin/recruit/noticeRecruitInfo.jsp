@@ -20,10 +20,6 @@
             <th width="2%" align="center"><input type="checkbox" class="checkboxCtrl" group="ids" value="xxx"></th>
             <th width="3%" align="center">编号</th>
             <th width="19%" align="center">招聘标题</th>
-            <th width="8%" align="center">联系人</th>
-            <th width="9%" align="center">联系方式</th>
-            <th width="8%" align="center">招聘时间</th>
-            <th width="14%" align="center">招聘地点</th>
             <th width="12%" align="center">发布者</th>
             <th width="8%" align="center">发布时间</th>
             <th width="5%" align="center">点击量</th>
@@ -37,10 +33,6 @@
                 <td><input class="selectTools" value="${x.empRecruitNo}" name="ids" type="checkbox"></td>
                 <td>${x.empRecruitNo}</td>
                 <td>${x.empRecruitTitle}</td>
-                <td>${x.empContact}</td>
-                <td>${x.empTel}</td>
-                <td>${x.empRecruitDate}</td>
-                <td>${x.empRecruitAddress}</td>
                 <td>${x.empRecruitPublisher}</td>
                 <td>${x.empRecruitPublishDateTime}</td>
                 <td>${x.empRecruitHits}</td>

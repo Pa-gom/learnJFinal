@@ -22,7 +22,6 @@ public class ImportData extends Controller {
 
 
     public void submitStuFile() {
-        System.out.print("$$$$$$$$$$$$$");
         UploadFile uploadFile = getFile();
 
         String fileName = uploadFile.getOriginalFileName();
@@ -53,61 +52,7 @@ public class ImportData extends Controller {
 
 
         // 异步上传时，无法通过uploadFile.getFileName()获取文件名
-        String fileName = getPara("stuFile");
-        System.out.print(fileName);
-        fileName = fileName.substring(fileName.lastIndexOf("\\") + 1); // 去掉路径
-
-        // 异步上传时，无法通过File source = uploadFile.getFile();获取文件
-        File source = new File(PathKit.getWebRootPath() + "/temp/" + fileName); // 获取临时文件对象
-
-        String extension = fileName.substring(fileName.lastIndexOf("."));
-        String savePath = PathKit.getWebRootPath() + "/upload/"
-                + "123";
-        JSONObject json = new JSONObject();
-
-        if (".png".equals(extension) || ".jpg".equals(extension)
-                || ".gif".equals(extension) || "jpeg".equals(extension)
-                || "bmp".equals(extension)) {
-            fileName = "123" + extension;
-
-            try {
-                FileInputStream fis = new FileInputStream(source);
-
-                File targetDir = new File(savePath);
-                if (!targetDir.exists()) {
-                    targetDir.mkdirs();
-                }
-
-                File target = new File(targetDir, fileName);
-                if (!target.exists()) {
-                    target.createNewFile();
-                }
-
-                FileOutputStream fos = new FileOutputStream(target);
-                byte[] bts = new byte[1024 * 20];
-                while (fis.read(bts, 0, 1024 * 20) != -1) {
-                    fos.write(bts, 0, 1024 * 20);
-                }
-
-                fos.close();
-                fis.close();
-                json.put("error", 0);
-                json.put("src", "upload/images/" + "123"
-                        + "/" + fileName); // 相对地址，显示图片用
-                source.delete();
-
-            } catch (FileNotFoundException e) {
-                json.put("error", 1);
-                json.put("message", "上传出现错误，请稍后再上传");
-            } catch (IOException e) {
-                json.put("error", 1);
-                json.put("message", "文件写入服务器出现错误，请稍后再上传");
-            }
-        } else {
-            source.delete();
-            json.put("error", 1);
-            json.put("message", "只允许上传png,jpg,jpeg,gif,bmp类型的图片文件");
-        }
+        UploadFile upfile = getFile("stuFile");
 
         ArrayList<String[]> list = new ArrayList<>();
         Workbook rwb = null;
@@ -115,7 +60,7 @@ public class ImportData extends Controller {
 
         //创建输入流
         //InputStream stream = Thread.currentThread().getContextClassLoader().getResourceAsStream(up.getUploadPath());
-        InputStream stream = new FileInputStream(source);
+        InputStream stream = new FileInputStream(upfile.getFile());
 
         //获取Excel文件对象
         rwb = Workbook.getWorkbook(stream);

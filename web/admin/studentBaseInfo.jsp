@@ -70,7 +70,7 @@
             <!--<li><a target="selectedLoad" rel="ids" postType="string" href="contractInfo.jsp" class="icon"><span>批量Dialog Load逗号分隔</span></a></li>-->
         </ul>
 
-        <input type="file" id="excel" name="stuInfo" onchange="submitExcel()" hidden/>
+        <input type="file" id="excel" name="stuFile" onchange="submitExcel()" hidden/>
     </div>
     <table class="table" width="100%" layoutH="150">
         <thead>
@@ -294,12 +294,11 @@
 
     function submitExcel() {
         var fileName = $('#excel').val();
-        alert(fileName);
         $.ajaxFileUpload({
             url: '/importExcel/readStuInfo',
             fileElementId: 'excel',
             dataType: 'json',
-            data: {"stuFile": fileName},
+            data: {stuFile: fileName},
             success: function (data, status) {
                 alertMsg.info("导入成功");
                 navTab.reload();

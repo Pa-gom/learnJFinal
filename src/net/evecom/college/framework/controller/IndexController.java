@@ -35,7 +35,7 @@ public class IndexController extends Controller{
     }
 
     public void exit() {
-        redirect("/index.jsp");
+        index();
     }
 
     /**
