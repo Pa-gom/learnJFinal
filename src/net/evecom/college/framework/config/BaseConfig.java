@@ -6,6 +6,8 @@ import com.jfinal.plugin.activerecord.ActiveRecordPlugin;
 import com.jfinal.plugin.c3p0.C3p0Plugin;
 import com.jfinal.render.ViewType;
 import net.evecom.college.framework.controller.*;
+import net.evecom.college.framework.jxl.ImportData;
+import net.evecom.college.framework.jxl.OutputData;
 import net.evecom.college.framework.mobileController.Login;
 import net.evecom.college.framework.mobileController.MobileRecruitInfo;
 import net.evecom.college.framework.model.*;
@@ -19,7 +21,6 @@ public class BaseConfig extends JFinalConfig{
         me.setDevMode(true);
         me.setEncoding("utf-8");
         me.setViewType(ViewType.JSP);
-        //me.setViewType(ViewType.JSP);
     }
 
     @Override
@@ -31,7 +32,8 @@ public class BaseConfig extends JFinalConfig{
         me.add("/uncheckRecruit", UncheckRecruitInfoController.class);
         me.add("/mobile", Login.class);
         me.add("/mRecruit", MobileRecruitInfo.class);
-        //me.add(new FrontRoutes());
+        me.add("/outputExcel", OutputData.class);
+        me.add("/importExcel", ImportData.class);
     }
 
     @Override

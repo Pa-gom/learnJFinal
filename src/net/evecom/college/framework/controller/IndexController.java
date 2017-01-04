@@ -35,7 +35,7 @@ public class IndexController extends Controller{
     }
 
     public void exit() {
-        renderFreeMarker("/admin/index.jsp");
+        redirect("/index.jsp");
     }
 
     /**

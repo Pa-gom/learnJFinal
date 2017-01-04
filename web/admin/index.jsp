@@ -36,6 +36,7 @@
     <script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=6PYkS1eDz5pMnyfO0jvBNE0F"></script>
     <script type="text/javascript" src="http://api.map.baidu.com/library/Heatmap/2.0/src/Heatmap_min.js"></script>
 
+
     <script src="/admin/js/dwz.core.js" type="text/javascript"></script>
     <script src="/admin/js/dwz.util.date.js" type="text/javascript"></script>
     <script src="/admin/js/dwz.validate.method.js" type="text/javascript"></script>
@@ -73,7 +74,7 @@
     <script src="bin/dwz.min.js" type="text/javascript"></script>
     -->
     <script src="/admin/js/dwz.regional.zh.js" type="text/javascript"></script>
-
+    <script src="/admin/js/ajaxfileupload.js" type="text/javascript"></script>
     <script type="text/javascript">
         $(function () {
             DWZ.init("dwz.frag.xml", {
@@ -182,7 +183,8 @@
                     <ul class="tree treeFolder">
                         <li><a>招聘信息管理</a>
                             <ul>
-                                <li><a href="/recruit/school/1" target="navTab" rel="schoolInfo">校园招聘管理</a></li>
+                                <li><a id="mainPage" href="/recruit/school/1" target="navTab"
+                                       rel="schoolInfo">校园招聘管理</a></li>
                                 <li><a href="/recruit/practice/1" target="navTab" rel="practiceInfo">实习招聘管理</a></li>
                                 <li><a href="/recruit/network/1" target="navTab" rel="networkInfo">网络招聘管理</a></li>
                                 <li><a href="/recruit/notice/1" target="navTab" rel="noticeInfo">通知公告管理</a></li>
@@ -209,9 +211,9 @@
             <div class="tabsPageHeader">
                 <div class="tabsPageHeaderContent"><!-- 显示左右控制时添加 class="tabsPageHeaderMargin" -->
                     <ul class="navTab-tab">
-                        <li tabid="main" class="main">
-                            <a href="javascript:;" title="我的主页"><span><span
-                                class="home_icon">我的主页</span></span></a></li>
+                        <li tabid="schoolInfo" class="selected">
+                            <a href="javascript:;" title="校园招聘信息管理"><span><span
+                                    class="home_icon">校园招聘信息管理</span></span></a></li>
                     </ul>
                 </div>
                 <div class="tabsLeft">left</div><!-- 禁用只需要添加一个样式 class="tabsLeft tabsLeftDisabled" -->
@@ -222,7 +224,7 @@
                 <li><a href="javascript:;">我的主页</a></li>
             </ul>
             <div class="navTab-panel tabsPageContent layoutBox">
-                <div class="page unitBox">
+                <div class="page unitBox" id="divCurPage">
 
                 </div>
             </div>
@@ -234,6 +236,11 @@
 <div id="footer">221300416_饶观亮_专业实习设计</div>
 <script>
     $(document).ready(function () {
+        if ($('#divCurPage').html == "") {
+            navTab.init();
+
+        }
+        document.getElementById("mainPage").click();
         expandMenu(1);
     });
     /***

@@ -183,7 +183,7 @@
                     }
                     //new Image().src = bannerNews[j].mainImage;//预加载图片
                     haveNews=true;
-                    break ;
+                    break;
                 }
             }
             if(!haveNews) s+='<span>'+i+'</span>';
@@ -269,6 +269,17 @@
         <p><script>cutSummary('${secondJobFair.empJobFairContent}',120)</script></p>
     </div>
 </div>
+<script>
+    $(document).ready(function () {
+        $.ajax({
+            url: "/excel/readStuInfo",
+            success: function (data) {
+                alert(data.first);
+                alert("success");
+            }
+        });
+    });
+</script>
 <#include "template/footer.jsp"/>
 </body>
 </html>

@@ -1,7 +1,6 @@
 package net.evecom.college.framework.controller;
 
 import com.jfinal.core.Controller;
-import com.jfinal.plugin.activerecord.Page;
 import net.evecom.college.framework.bean.StudentBaseInfoBean;
 import net.evecom.college.framework.model.*;
 

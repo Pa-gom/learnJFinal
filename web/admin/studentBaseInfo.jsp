@@ -66,10 +66,11 @@
             <li><a title="确实要删除这些记录吗?" onclick="delInfoList()" class="delete"><span>批量删除</span></a></li>
             </li>
             <li class="line">line</li>
-            <li><a class="icon" href="demo/common/dwz-team.xls" target="dwzExport" targetType="navTab"
-                   title="实要导出这些记录吗?"><span>导出EXCEL</span></a></li>
+            <li><a class="icon" href="#" onclick="importExcel()"><span>导入EXCEL</span></a></li>
             <!--<li><a target="selectedLoad" rel="ids" postType="string" href="contractInfo.jsp" class="icon"><span>批量Dialog Load逗号分隔</span></a></li>-->
         </ul>
+
+        <input type="file" id="excel" name="stuInfo" onchange="submitExcel()" hidden/>
     </div>
     <table class="table" width="100%" layoutH="150">
         <thead>
@@ -285,5 +286,28 @@
         condition = $(form).serializeArray();
         navTab.reload(form.action, condition);
         return false;
+    }
+
+    function importExcel() {
+        $('#excel').click();
+    }
+
+    function submitExcel() {
+        var fileName = $('#excel').val();
+        alert(fileName);
+        $.ajaxFileUpload({
+            url: '/importExcel/readStuInfo',
+            fileElementId: 'excel',
+            dataType: 'json',
+            data: {"stuFile": fileName},
+            success: function (data, status) {
+                alertMsg.info("导入成功");
+                navTab.reload();
+            },
+            error: function (result, status, e) {
+                alert(status);
+            }
+        });
+
     }
 </script>
